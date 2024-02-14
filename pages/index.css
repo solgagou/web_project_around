@@ -1,0 +1,462 @@
+@import url("../fonts/fonts.css");
+
+
+@import url("../vendor/normalize.css");
+
+
+
+
+.page {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    background-color: #000;
+    margin: auto;
+    font-family: "Inter";
+   
+
+
+}
+
+
+.header {
+    width: 880px;
+    height: 74px;
+    margin: 45px auto 40px auto;
+
+}
+
+
+.header__logo {
+    width: 173px;
+    height: 33px;
+    color: #fff;
+    
+
+}
+
+
+.header__line {
+    width: 880px;
+    opacity: 0.7;
+    border: 1px solid #545454;
+    margin-top: 41px;
+    
+    
+}
+
+
+.profile {
+    margin: auto;
+    
+  
+}
+
+
+.profile__header {
+    display: flex;
+    margin: auto; 
+    
+}
+
+
+.profile__photo {
+    border-radius: 50%;
+    /*margin: 0;*/
+    width: 120px;
+    height: 120px;
+   
+}
+
+.profile__data {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 450px;
+    margin: auto auto auto 30px;
+    
+  
+}
+
+.profile__name {
+    font-family: "Inter";
+    font-size: 42px;
+    font-weight: 500;
+    line-height: 48px;
+    letter-spacing: 0em;
+    color: #fff;
+    margin: 0; 
+
+
+}
+
+.profile__edit-button {
+    background-color: #000;
+    border: none;
+    visibility: visible;
+
+
+}
+
+.profile__edit-image {
+    width: 24px;
+    height: 24px;
+    margin: auto auto auto 18px;
+  
+}
+
+.profile__job {
+    font-family: "Inter";
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    color: #fff;
+    margin: 0;
+   
+   
+}
+
+
+.profile__add-button {
+    background-color: #000;
+    border: none;
+    
+
+}
+
+.profile__add-image {
+    width: 150px;
+    margin: auto;
+    
+}
+
+
+
+.feed__cards {
+    gap: 17px;
+    max-width: 880px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px auto auto auto;
+    
+   
+}
+
+
+.card {
+    height: 361px;
+    width: 282px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    list-style: none;
+   
+    
+}
+
+
+.card__image {
+    width: 282px;
+
+
+}
+
+.card__info {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+
+.card__title {
+    font-family: "Inter";
+    font-size: 24px;
+    font-weight: 900;
+    font-style: black;
+    line-height: 29px;
+    letter-spacing: 0em;
+    color: #000;
+    background-color: #fff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+   
+
+}
+
+.card__button {
+    border: none;
+    background-color: #fff;
+    width: 21x;
+    height: 18px;
+    margin: auto 20px auto auto;
+    
+
+}
+
+.card__button:active {
+    background-color:#000;
+
+}
+
+
+.card__button-image {
+    width: 21px;
+
+}
+
+
+.footer {
+    margin: 66px 200px 60px 200px;
+}
+
+
+.footer__copyright {
+    font-family: "Inter";
+    font-style: normal;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    color: #545454;
+   
+    
+    
+}
+
+
+
+.popup {
+    background-color: #000;
+    opacity: 0,5;
+    visibility: hidden;
+   
+
+}
+
+.popup__form {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    align-items: center;
+}
+
+.popup_opened {
+    display: block;
+    visibility: visible;
+}
+
+
+.form__title {
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 900;
+    line-height: 29px;
+    letter-spacing: 0em;
+    color: #000000;
+    
+}
+
+.form__input {
+    font-family: Inter;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0em;
+    color: #000000;
+    
+
+}
+
+.form__submit-button {
+    font-family: Inter;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    color: #fff;
+    background-color: #000;
+    width: 358px;
+    height: 50px;
+    border-radius: 2px;
+    border: none;
+
+}
+
+
+@media screen and (min-width 320px) and (max-width: 720px) {
+    
+    .page {
+        max-width: 720px;
+    }
+
+    .header {
+        width: 100%;
+        
+        
+        /*margin: 45px 200px 40px 200px;*/
+    
+    }
+    
+    
+    .header__logo {
+        width: 126px;
+        height: 24px;
+       /* margin: auto;*/
+    
+    }
+    
+    
+    .header__line {
+        width: 320px;
+        /*margin-top: 41px;*/
+        
+    }
+    
+    
+    .profile {
+       /* margin: auto;*/
+       
+        
+      
+    }
+    
+    
+    .profile__header {
+        
+              
+    }
+    
+    
+    .profile__photo {
+        /*margin: 0;*/
+       
+       
+    }
+    
+    .profile__data {
+        flex-direction: column;
+        
+        max-width: 282px;
+        /*margin: auto auto auto 30px;*/
+        
+      
+    }
+    
+    .profile__name {
+        font-size: 22px;
+        line-height: 27px;
+       
+        flex-wrap: nowrap;
+        /*margin: 0; */
+    
+    
+    }
+    
+    /*.profile__edit-button {
+        
+    
+    }*/
+    
+    .profile__edit-image {
+        width: 18px;
+        height: 18px;
+        /*margin: auto auto auto 18px;*/
+      
+    }
+    
+    .profile__job {
+        font-size: 14px;
+        /*margin: 0;*/
+       
+       
+    }
+    
+    
+    /*.profile__add-button {
+        
+       
+        
+    
+    }*/
+    
+    .profile__add-image {
+         width: 282px;
+        /*margin: auto;*/
+        
+        
+        
+    }
+    
+    
+    
+    .feed__cards {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        grid-gap: 20px 0;
+        margin: auto;      
+       
+    }
+    
+    
+    .card {
+        
+       
+        
+    }
+    
+    
+    .card__image {
+            
+    
+    }
+    
+    .card__info {
+        display: flex;
+        flex-direction: row;
+        
+    }
+    
+    
+    .card__title {
+        
+             
+    
+    }
+    
+    .card__button {
+        border: none;
+        background-color: #fff;
+        width: 21x;
+        height: 18px;
+        margin: auto 20px auto auto;
+        
+    
+    }
+    
+    .card__button-image {
+        width: 21px;
+    
+    }
+    
+    
+    .footer {
+        
+        margin: 48px 19px 36px 19px;
+    }
+    
+    
+    .footer__copyright {
+        font-size: 14px;
+        
+       
+        
+        
+    }
+    
+
+}

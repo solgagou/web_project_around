@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Un feed de una red social con fotos de un explorador"
+    />
+  <meta name="keywords" content="US, around, Cousteau" />
+  <meta name="author" content="Sol Gago" />
+  <script src="./scripts/script.js"></script>
+  <link rel="stylesheet" href="./pages/index.css">
+    <title>Around The U.S.</title>
+</head>
+<body>
+    <div class="page">
+        <header class="header">
+          <img src="./images/logo_around.png" alt="logo of Around" class="header__logo">
+          <img src="./images/Line.jpg" alt="a line" class="header__line">
+        </header>  
+        <main class="profile">
+          <div class="profile__header">
+            <img src="./images/profile_image.jpg" alt="a photo of Jack Cousteau with a red hat" class="profile__photo">
+            <div class="profile__data">
+              <h1 class="profile__name">Jacques Cousteau</h1>
+              <button class="profile__edit-button" type="submit">
+                <img src="./images/Edit Button.png" class="profile__edit-image" alt="an image of a pencil button">
+              </button>
+              <p class="profile__job">Explorer</p>
+            </div>  
+            <button class="profile__add-button" type="submit">
+              <img src="./images/Add Button.png" class="profile__add-image" alt="an image of a add button">
+            </button>
+          </div>
+          <ul class="feed__cards">
+            <li class="card">
+                <img src="./images/Element_Yosemite.jpg" alt="a landscape photo of Yosemire Valley" class="card__image">
+                <div class="card__info">
+                  <p class="card__title">Yosemite Valley</p>
+                  <button class="card__button" type="submit">
+                    <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
+                  </button>  
+                </div>
+            </li>
+            <li class="card">
+                <img src="./images/Element_LakeLouise.jpg" alt="a landscape photo of Lake Louise" class="card__image">
+                <div class="card__info">
+                  <p class="card__title">Lake Louise</p>
+                  <button class="card__button" type="submit">
+                    <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
+                  </button>
+                </div>  
+            </li>
+            <li class="card">
+                <img src="./images/Element_BaldMountains.jpg" alt="a landscape photo of Bald Mountains" class="card__image">
+                <div class="card__info">
+                  <p class="card__title">Bald Mountains</p>
+                  <button class="card__button" type="submit">
+                    <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
+                  </button>
+                </div>  
+            </li>
+            <li class="card">
+                <img src="./images/Element_Latemar.jpg" alt="a landscape photo of Latemar" class="card__image">
+                <div class="card__info">
+                  <p class="card__title">Latemar</p>
+                  <button class="card__button" type="submit">
+                    <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
+                  </button>
+                </div>  
+            </li>
+            <li class="card">
+                <img src="./images/Element_Vanoise.jpg" alt="a landscape photo of Vanoise National Park" class="card__image">
+                <div class="card__info">
+                  <p class="card__title">Vanoise National Park</p>
+                  <button class="card__button" type="submit">
+                    <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
+                  </button>
+                </div>  
+            </li>
+            <li class="card">
+               <img src="./images/Element_LagoDiBraies.jpg" alt="a landscape photo of LagoDiBraies" class="card__image">
+               <div class="card__info">
+                <p class="card__title">Lago di Braies</p>
+                <button class="card__button" type="submit">
+                  <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
+                </button>
+              </div> 
+            </li>
+          </ul>
+        </main>
+        <footer class="footer">
+          <p class="footer__copyright">&#169; 2020 Around The U.S.</p>
+        </footer>
+        
+        <div class="popup popup_opened" id="popup-profile">
+          <form class="form popup__form" id="profile-form">
+            <img class="form_close-button" src="./images/Close Icon.png" id="close-profile-form">
+            <h2 class="form__title">Edit profile</h2>
+            <input class="form__input" type="text" id="input-name" placeholder="Jacques Cousteau" required minlength="2" maxlength="40">
+            <input class="form__input" type="text" id="input-job" placeholder="Explorer" required minlength="2" maxlength="40">
+            <button class="form__submit-button" type="submit" id="profile-form-button">Save</button>
+          </form>
+        </div>
+      
+</body>
+</html>
