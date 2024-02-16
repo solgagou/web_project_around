@@ -12,12 +12,9 @@
     box-sizing: border-box;
     background-color: #000;
     margin: auto;
-    font-family: "Inter";
-      
+    font-family: "Inter";    
+       
     
-   
-
-
 }
 
 
@@ -30,6 +27,7 @@
 
 
 .header__logo {
+    margin: auto;
     width: 173px;
     height: 33px;
     color: #fff;
@@ -57,26 +55,27 @@
 
 .profile__header {
     display: flex;
-    margin: auto; 
+    margin: auto;
+    max-width: 880px;
+    
     
 }
 
 
 .profile__photo {
     border-radius: 50%;
-    /*margin: 0;*/
     width: 120px;
     height: 120px;
    
 }
 
 .profile__data {
-    margin: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-width: 450px;
+    width: 430px;
     margin: auto auto auto 30px;
+  
     
   
 }
@@ -143,6 +142,7 @@
     display: flex;
     flex-wrap: wrap;
     margin: 50px auto auto auto;
+    padding-left: 0;
     
    
 }
@@ -246,6 +246,7 @@
     height: 330px;
     border-radius: 10px;
     margin: 160px auto;
+    position: relative;
 }
 
 .popup_opened {
@@ -258,8 +259,8 @@
     width: 40px;
     height: 40px;
     position: absolute;
-    right: 500px;
-    top: 160px;
+    right: -50px;
+    top: -50px;
 
 
 }
@@ -290,8 +291,6 @@
     border-top: none;
     border-bottom: 1px solid rgba(0,0,0,0.2);
     margin-bottom: 30px;
-   
-    
 
 }
 
@@ -311,12 +310,11 @@
 }
 
 
-@media screen and (min-width: 320px) and (max-width: 720px) {
-    
-    .page {
-        max-width: 720px;
-    }
+ 
 
+@media screen and (min-width: 320px) and (max-width: 768px) {
+    
+    
     .header {
         width: 100%;
         
@@ -333,18 +331,20 @@
     
     
     .header__line {
-        width: 320px;
+        width: 300px;
         
         
     }
     
     
-    /*.profile {*/
-       
+    .profile {
+        width: 100%;
+        
     }
     
     
     .profile__header {
+        width: 90%;
         display: flex;
         flex-direction: column;
         margin: auto;
@@ -356,18 +356,16 @@
     .profile__photo {
         margin-bottom: 30px;
        
+        
+       
        
     }
     
     .profile__data {
-        flex-direction: row;
-        flex-wrap: wrap;
-        width: 282px;
+        width: 90%;
         justify-content: center;
         
         
-        
-      
     }
     
     .profile__name {
@@ -385,7 +383,7 @@
     .profile__edit-image {
         width: 7,5px;
         height: 7,5px;
-        /*margin: auto auto auto 18px;*/
+        margin: auto auto auto 10px;
       
     }
     
@@ -398,13 +396,15 @@
     
     
     .profile__add-button {
-        
+       
        
         
-  
+    }
     
     .profile__add-image {
-         width: 90%;
+        width: 90%;
+        align-items: center;
+       
         
         
     }
@@ -413,18 +413,20 @@
     
     .feed__cards {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
+        grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(1, 1fr);
         grid-gap: 20px 0;
-        margin: auto; 
-        width: 282px;     
+        margin: 36px auto auto auto; 
+        width: 90%;
+        align-items: center;
+             
        
     }
     
     
     .card {
-        
-       
+        width: 282px;
+              
         
     }
     
@@ -475,15 +477,6 @@
     }
     
 
-   /* .popup {
-        background-color: rgba(0,0,0,0.5);
-        position: fixed;
-        display: none;
-        width: 100%;
-        height: 100vh;
-       
-    }*/
-    
     .popup__form {
         width: 282px;
         height: 322px;
@@ -491,16 +484,14 @@
         margin: 123px 19px auto 19px;
     }
     
-    /*.popup_opened {
-        display: block;
         
-    }*/
-    
     .form_close-button {
         width: 26px;
         height: 26px;
         position: absolute;
-        margin: 73px 19px 14px auto;
+        right: 0;
+        top: -50px;
+        
     
     }
     
@@ -527,5 +518,9 @@
         margin: 45px 22px 25px 22px;
     }
     
+
+}
+
+/*    @media screen and (max-width: 720px) {
 
 }
