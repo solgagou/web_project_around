@@ -1,0 +1,131 @@
+.feed__cards {
+    gap: 17px;
+    max-width: 880px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px auto auto auto;
+    padding-left: 0;
+    
+   
+}
+
+
+.card {
+    height: 361px;
+    width: 282px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-sizing: border-box;
+    list-style: none;
+   
+    
+}
+
+
+.card__image {
+    width: 282px;
+
+
+}
+
+.card__info {
+    display: flex;
+    flex-direction: row;
+    
+}
+
+
+.card__title {
+    font-family: "Inter";
+    font-size: 24px;
+    font-weight: 900;
+    font-style: black;
+    line-height: 29px;
+    letter-spacing: 0em;
+    color: #000;
+    background-color: #fff;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 25px 15px 31px 21px;
+
+}
+
+.card__button {
+    border: none;
+    background-color: #fff;
+    width: 21x;
+    height: 18px;
+    margin: auto 20px auto auto;
+    
+
+}
+
+.card__button:active {
+    background-color:#000;
+
+}
+
+
+.card__button-image {
+    width: 21px;
+
+}
+
+
+@media screen and (min-width: 320px) and (max-width: 768px) {
+
+    .feed__cards {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(1, 1fr);
+        grid-gap: 20px 0;
+        margin: 36px auto auto auto; 
+        width: 90%;
+        align-items: center;
+             
+       
+    }
+    
+    
+    .card {
+        width: 282px;
+              
+        
+    }
+    
+    
+    .card__image {
+            
+    
+    }
+    
+    .card__info {
+        display: flex;
+        flex-direction: row;
+        
+    }
+    
+    
+    .card__title {
+        
+             
+    
+    }
+    
+    .card__button {
+        border: none;
+        background-color: #fff;
+        width: 21x;
+        height: 18px;
+        margin: auto 20px auto auto;
+        
+    
+    }
+    
+    .card__button-image {
+        width: 21px;
+    
+    }
+    
+}
