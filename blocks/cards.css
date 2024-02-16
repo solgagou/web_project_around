@@ -1,4 +1,4 @@
-.feed__cards {
+.cards {
     gap: 17px;
     max-width: 880px;
     display: flex;
@@ -75,7 +75,7 @@
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
 
-    .feed__cards {
+    .cards {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(1, 1fr);
