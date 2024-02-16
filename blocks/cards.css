@@ -80,10 +80,9 @@
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(1, 1fr);
         grid-gap: 20px 0;
-        margin: 36px auto auto auto; 
         width: 90%;
         align-items: center;
-             
+        margin: 36px auto auto auto;     
        
     }
     
