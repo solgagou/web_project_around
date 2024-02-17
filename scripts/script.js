@@ -19,10 +19,12 @@ function handleOpenProfileSubmit (evt) {
     evt.preventDefault();
     profileName.textContent = inputProfileName.value;
     profileJob.textContent = inputProfileJob.value;
+    
     handleCloseProfileForm();
     
 }
 
+ 
 openFormButton.addEventListener("click", handleOpenProfileForm)
 closeButton.addEventListener("click", handleCloseProfileForm)
-formProfileButton.addEventListener("click", handleProfileSubmit)
+formProfileButton.addEventListener("click", handleOpenProfileSubmit)

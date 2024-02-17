@@ -23,7 +23,7 @@
 
 .profile__data {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: wrap;
     width: 430px;
     margin: auto auto auto 30px;
@@ -40,6 +40,7 @@
     letter-spacing: 0em;
     color: #fff;
     margin: 0; 
+  
 
 
 }
@@ -48,6 +49,7 @@
     background-color: #000;
     border: none;
     visibility: visible;
+    
 
 
 }
@@ -67,7 +69,7 @@
     line-height: 22px;
     letter-spacing: 0em;
     color: #fff;
-    margin: 0;
+    
    
    
 }
@@ -77,22 +79,35 @@
     background-color: #000;
     border: none;
     
+    
 
 }
 
 .profile__add-image {
     width: 150px;
+    height: 50px;
     margin: auto;
     
 }
 
+@media screen and (min-width: 769px) and (max-width: 1280px) {
+    
+    .profile__data {
+        flex-direction: row;
+        flex-wrap: wrap;
+       
+    }
+
+      
+}
+
 @media screen and (min-width: 320px) and (max-width: 768px) {
 
-    .profile {
-        width: 100%;
+      
+    .profile__job {
+        
         
     }
-    
     
     .profile__header {
         width: 90%;
@@ -107,14 +122,12 @@
     .profile__photo {
         margin-bottom: 30px;
        
-        
-       
-       
     }
     
     .profile__data {
         width: 90%;
-        justify-content: center;
+        align-items: center;
+        
         
         
     }
@@ -122,6 +135,7 @@
     .profile__name {
         font-size: 22px;
         line-height: 27px;
+        
        
     
     }
@@ -132,15 +146,19 @@
     }*/
     
     .profile__edit-image {
-        width: 7px;
-        height: 7px;
-        margin: auto auto auto 10px;
+        width: 18px;
+        height: 18px;
+        margin: 10px auto auto auto;
+       
       
     }
     
     .profile__job {
         font-size: 14px;
         margin-bottom: 36px;
+        
+        
+       
        
        
     }
@@ -148,14 +166,13 @@
     
     .profile__add-button {
        
-       
+        
         
     }
     
     .profile__add-image {
         width: 90%;
-        align-items: center;
-       
+        
         
         
     }

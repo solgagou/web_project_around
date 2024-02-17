@@ -1,5 +1,5 @@
 .footer {
-    margin: 66px 200px 60px 200px;
+    margin: auto;
 }
 
 
@@ -11,19 +11,25 @@
     line-height: 22px;
     letter-spacing: 0em;
     color: #545454;
+    text-align: start;
+    margin-top: 60px;
   
 }
 
+@media screen and (min-width: 768px) and (max-width: 1280px) {
+    .footer {
+        margin: auto 200px auto 200px;
+}
+
+}
+
+
 @media screen and (min-width: 320px) and (max-width: 768px) {
 
-    .footer {
-        
-        margin: 48px 19px 36px 19px;
-    }
-    
-    
     .footer__copyright {
         font-size: 14px;
+        margin: 48px auto 36px auto;
+        width: 282px;
         
     }
     
