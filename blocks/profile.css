@@ -37,7 +37,7 @@
     line-height: 48px;
     letter-spacing: 0em;
     color: #fff;
-    margin: 0; 
+    margin: auto; 
     width: 375px;
     margin-right: auto;
     
@@ -164,9 +164,7 @@
     
     
     .profile__add-image {
-        width: 90%
-        
-        
+        width: 90%;
         
     }
 
