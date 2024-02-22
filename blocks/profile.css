@@ -1,16 +1,13 @@
 .profile {
     margin: auto;
     
-  
 }
 
 
 .profile__header {
     display: flex;
-    margin: auto;
-    max-width: 880px;
-    
-    
+    margin: auto auto 50px auto;
+   
 }
 
 
@@ -18,15 +15,16 @@
     border-radius: 50%;
     width: 120px;
     height: 120px;
+    margin: auto;
    
 }
 
 .profile__data {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    width: 430px;
-    margin: auto auto auto 30px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 5px;
+    width: 415px;
+    margin: auto 165px auto 30px;
   
     
   
@@ -40,6 +38,9 @@
     letter-spacing: 0em;
     color: #fff;
     margin: 0; 
+    width: 375px;
+    margin-right: auto;
+    
   
 
 
@@ -50,14 +51,17 @@
     border: none;
     visibility: visible;
     
+    
 
 
 }
 
 .profile__edit-image {
+    
     width: 24px;
     height: 24px;
-    margin: auto auto auto 18px;
+    margin-left: 18px;
+    
   
 }
 
@@ -102,18 +106,11 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
-
-      
-    .profile__job {
-        
-        
-    }
-    
+  
     .profile__header {
-        width: 90%;
         display: flex;
         flex-direction: column;
-        margin: auto;
+        margin: auto auto 36px auto;
         align-items: center;
               
     }
@@ -121,13 +118,13 @@
     
     .profile__photo {
         margin-bottom: 30px;
+
        
     }
     
     .profile__data {
-        width: 90%;
-        align-items: center;
-        
+      text-align: center;
+    
         
         
     }
@@ -135,6 +132,7 @@
     .profile__name {
         font-size: 22px;
         line-height: 27px;
+        margin-bottom: 14px;
         
        
     
@@ -148,7 +146,8 @@
     .profile__edit-image {
         width: 18px;
         height: 18px;
-        margin: 10px auto auto auto;
+        margin: auto auto auto 15px;
+        display: block;
        
       
     }
@@ -165,10 +164,13 @@
     
     
     .profile__add-image {
-        width: 90%;
+        width: 90%
         
         
         
     }
 
+
+   
+  
 }
