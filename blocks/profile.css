@@ -38,10 +38,10 @@
     letter-spacing: 0em;
     color: #fff;
     width: 375px;
-    margin: auto; 
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    margin: auto; 
    
 
 }
