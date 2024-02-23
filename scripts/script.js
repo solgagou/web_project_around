@@ -1,17 +1,22 @@
-const openFormButton = document.querySelector('.profile__edit-button')
+const openFormButton = document.querySelector('.profile__edit-button');
 const popup = document.querySelector('.popup');
+
 
 const closeButton = document.querySelector('#close-profile-form');
 const inputProfileName = document.querySelector('#input-name');
 const inputProfileJob = document.querySelector('#input-job');
 const formProfileButton = document.querySelector('#submit-profile-button');
 
-function handleOpenProfileForm () {
-    popup.classList.add("popup_opened")
+
+
+popup.style.display = "none";
+
+function handleOpenProfileForm() {
+    popup.style.display = "block";
 }
 
-function handleCloseProfileForm () {
-    popup.classList.remove("popup_opened")
+function handleCloseProfileForm() {
+    popup.style.display = "none";
 }
 
 function handleOpenProfileSubmit (evt) {
