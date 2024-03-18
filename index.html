@@ -32,62 +32,6 @@
               <img src="./images/Add_Button.png" class="profile__add-image" alt="an image of a add button">
             </button>
           </div>
-          <ul class="cards">
-            <li class="card">
-                <img src="./images/Element_Yosemite.jpg" alt="a landscape photo of Yosemire Valley" class="card__image">
-                <div class="card__info">
-                  <p class="card__title">Yosemite Valley</p>
-                  <button class="card__button" type="submit">
-                    <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
-                  </button>  
-                </div>
-            </li>
-            <li class="card">
-                <img src="./images/Element_LakeLouise.jpg" alt="a landscape photo of Lake Louise" class="card__image">
-                <div class="card__info">
-                  <p class="card__title">Lake Louise</p>
-                  <button class="card__button" type="submit">
-                    <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
-                  </button>
-                </div>  
-            </li>
-            <li class="card">
-                <img src="./images/Element_BaldMountains.jpg" alt="a landscape photo of Bald Mountains" class="card__image">
-                <div class="card__info">
-                  <p class="card__title">Bald Mountains</p>
-                  <button class="card__button" type="submit">
-                    <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
-                  </button>
-                </div>  
-            </li>
-            <li class="card">
-                <img src="./images/Element_Latemar.jpg" alt="a landscape photo of Latemar" class="card__image">
-                <div class="card__info">
-                  <p class="card__title">Latemar</p>
-                  <button class="card__button" type="submit">
-                    <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
-                  </button>
-                </div>  
-            </li>
-            <li class="card">
-                <img src="./images/Element_Vanoise.jpg" alt="a landscape photo of Vanoise National Park" class="card__image">
-                <div class="card__info">
-                  <p class="card__title">Vanoise National Park</p>
-                  <button class="card__button" type="submit">
-                    <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
-                  </button>
-                </div>  
-            </li>
-            <li class="card">
-               <img src="./images/Element_LagoDiBraies.jpg" alt="a landscape photo of LagoDiBraies" class="card__image">
-               <div class="card__info">
-                <p class="card__title">Lago di Braies</p>
-                <button class="card__button" type="submit">
-                  <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
-                </button>
-              </div> 
-            </li>
-          </ul>
         </main>
         <footer class="footer">
           <p class="footer__copyright">&#169; 2020 Around The U.S.</p>
@@ -101,7 +45,100 @@
             <input class="form form__input" type="text" id="input-job" placeholder="Explorer" required minlength="2" maxlength="40" value="Explorer">
             <button class="form form__submit-button" type="submit" id="submit-profile-button">Save</button>
           </form>
+        </div> 
+
+        <div class="popup popup_show" id="popup-add-card" required>
+          <form class="form popup__form" id="addcard-form" required>
+            <img class="form form_close-button" src="./images/Close_Icon.png" id="close-addcard-form" alt="an image of a close button">
+            <h2 class="form form__title">Nuevo lugar</h2>
+            <input class="form form__input" type="text" id="input-title" placeholder="Título" required minlength="2" maxlength="40" value="Título">
+            <input class="form form__input" type="text" id="input-url" placeholder="Enlace a la imagen" required minlength="2" value="Enlace a la imagen">
+            <button class="form form__submit-button" type="submit" id="addcard-form-button">Crear</button>
+          </form>
         </div>
+
+        <div class="popup popup_show" id="popup-show-image">
+          <img class="popup_close-button" src="./images/Close_Icon.png" id="close-image-button" alt="an image of a close button">
+          <img class="popup-image" src="">
+          <h3 class="popup__title"></h3>
+        </div>
+        
+      <template class="template-card">
+          <ul class="cards">
+            <li class="card">
+                <img src="" alt="a landscape photo of Yosemire Valley" class="card__image">
+                <div class="card__info">
+                  <button class="card__delete_button" type="button">
+                    <img src="./images/icono_papelera.png" class="card__delete_button-image" alt="an image of a trash can">
+                  </button> 
+                  <p class="card__title"></p>
+                  <button class="card__button" type="submit">
+                    <img src="" class="card__button-image" alt="an image of a heart button">
+                  </button>  
+                </div>
+            </li>
+            <li class="card">
+                <img src="" alt="a landscape photo of Lake Louise" class="card__image">
+                <div class="card__info">
+                    <button class="card__delete_button" type="button">
+                      <img src="./images/icono_papelera.png" class="card__delete_button-image" alt="an image of a trash can">
+                    </button> 
+                  <p class="card__title"></p>
+                  <button class="card__button" type="submit">
+                    <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
+                  </button>
+                </div>  
+            </li>
+            <li class="card">
+                <img src="" alt="a landscape photo of Bald Mountains" class="card__image">
+                <div class="card__info">
+                    <button class="card__delete_button" type="button">
+                      <img src="./images/icono_papelera.png" class="card__delete_button-image" alt="an image of a trash can">
+                    </button> 
+                  <p class="card__title"></p>
+                  <button class="card__button" type="submit">
+                    <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
+                  </button>
+                </div>  
+            </li>
+            <li class="card">
+                <img src="" alt="a landscape photo of Latemar" class="card__image">
+                <div class="card__info">
+                    <button class="card__delete_button" type="button">
+                      <img src="./images/icono_papelera.png" class="card__delete_button-image" alt="an image of a trash can">
+                    </button> 
+                  <p class="card__title"></p>
+                  <button class="card__button" type="submit">
+                    <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
+                  </button>
+                </div>  
+            </li>
+            <li class="card">
+                <img src="" alt="a landscape photo of Vanoise National Park" class="card__image">
+                <div class="card__info">
+                    <button class="card__delete_button" type="button">
+                      <img src="./images/icono_papelera.png" class="card__delete_button-image" alt="an image of a trash can">
+                    </button> 
+                  <p class="card__title"></p>
+                  <button class="card__button" type="submit">
+                    <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
+                  </button>
+                </div>  
+            </li>
+            <li class="card">
+               <img src="" alt="a landscape photo of LagoDiBraies" class="card__image">
+               <div class="card__info">
+                  <button class="card__delete_button" type="button">
+                    <img src="./images/icono_papelera.png" class="card__delete_button-image" alt="an image of a trash can">
+                  </button> 
+                <p class="card__title"></p>
+                <button class="card__button" type="submit">
+                  <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
+                </button>
+              </div> 
+            </li>
+          </ul>
+        </template>
       <script src="./scripts/script.js"></script>
     </div>    
 </body>
