@@ -22,6 +22,8 @@
 
 .card__image {
     width: 282px;
+    height: 300px;
+    z-index: 0;
 
 
 }
@@ -32,6 +34,21 @@
     
 }
 
+.card__delete_button {
+    width: 18px;
+    height: 19px;
+    position: absolute;
+    right: 500px;
+    top: 500px;
+    z-index: 2;
+    
+}
+
+
+.card__delete_button:active {
+    background-color: (255, 255, 255, 1);
+
+}
 
 .card__title {
     font-family: "Inter";
@@ -64,8 +81,14 @@
 }
 
 
+
 .card__button-image {
     width: 21px;
+
+}
+
+.template-card {
+   
 
 }
 

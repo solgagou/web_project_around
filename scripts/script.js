@@ -9,14 +9,15 @@ const btnAddCard = document.querySelector('.profile__add-button');
 const popUpCard = document.querySelector("#popup-add-card");
 const btnCloseCardForm = document.querySelector('#close-addcard-form');
 const templateCard = document.querySelector('.template-card');
-const cardArea =document.querySelector(".card");
-const InputCardTitle = document.querySelector("#input-title");
-const InputCardLink = document.querySelector("#input-url");
+const cardArea = document.querySelector(".cards");
+const inputCardTitle = document.querySelector("#input-title");
+const inputCardLink = document.querySelector("#input-url");
 const FormCard = document.querySelector("#addcard-form");
 const PopUpShowImage = document.querySelector("#popup-show-image");
 const closeImage = document.querySelector("#close-image-button");
 const popupTitle = document.querySelector(".popup__title");
 const popupImage = document.querySelector(".popup__image");
+
 
 const initialCards = [
     {
@@ -73,7 +74,7 @@ function handleCloseCardForm() {
 }
 
 function handleOpenImage(title, link) {
-  popupImage.src = link, 
+  popupImage.src = link; 
   popupTitle.textContent = title;
   
 }
@@ -103,19 +104,26 @@ function cardGenerator(title, link) {
   const cardImage = card.querySelector(".card__image");
   const cardTitle = card.querySelector(".card__title");
   const likeButton = card.querySelector(".card__button");
-  const deleteButtonElement = card.querySelector(".card__delete_button");
+  const deleteButton = card.querySelector(".card__delete_button");
   cardImage.src = link;
   cardTitle.textContent = title;
   likeButton.addEventListener("click", function() {
     likeButton.classList.toggle("card__button:active");
   });
     cardImage.addEventListener("click", function() {
-      handleOpenImage(title, link)
+      handleOpenImage(title, link);
     })
+  deleteButton.addEventListener("click", function() {
+    card.remove();
+  })
+  //  deleteButton.classList.toggle("card__delete_button:active");
+  
     return card;
  
 }
-initialCards.forEach(function () {
+
+
+initialCards.forEach(function (card) {
   const newCard = cardGenerator(card.name, card.link);
   cardArea.append(newCard);
 })
@@ -123,7 +131,7 @@ initialCards.forEach(function () {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault()
-  const newCard = cardGenerator(inputCardTitle.value, inputCardLink.value);
+  const newCard = cardGenerator (inputCardTitle.value, inputCardLink.value);
   cardArea.prepend(newCard);
   handleCloseCardForm();
   
@@ -133,7 +141,7 @@ function handleAddCardSubmit(evt) {
 openFormButton.addEventListener("click", handleOpenProfileForm);
 closeButton.addEventListener("click", handleCloseProfileForm);
 
-btnAddCard.addEventListener("click", handleOpenCardForm)
+btnAddCard.addEventListener("click", handleOpenCardForm) 
 btnCloseCardForm.addEventListener("click", handleCloseCardForm)
 closeImage.addEventListener("click", handleCloseImage)
 
