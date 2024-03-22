@@ -63,14 +63,14 @@ function handleCloseProfileForm() {
 
 
 function handleOpenCardForm() {
-  popUpCard.classList.add("popup_show")
+  popUpCard.classList.add("popup_opened")
 
 
 
 }
 
 function handleCloseCardForm() {
-  popUpCard.classList.remove("popup_show")
+  popUpCard.classList.remove("popup_opened")
 }
 
 function handleOpenImage(title, link) {
@@ -80,7 +80,7 @@ function handleOpenImage(title, link) {
 }
 
 function handleCloseImage() {
-  PopUpShowImage.classList.remove("popup_show");
+  PopUpShowImage.classList.remove("popup_opened");
 }
 
 function handleOpenProfileSubmit (evt) {
@@ -104,7 +104,7 @@ function cardGenerator(title, link) {
   const cardImage = card.querySelector(".card__image");
   const cardTitle = card.querySelector(".card__title");
   const likeButton = card.querySelector(".card__button");
-  const deleteButton = card.querySelector(".card__delete_button");
+  const deleteButton = card.querySelector(".card__delete-button");
   cardImage.src = link;
   cardTitle.textContent = title;
   likeButton.addEventListener("click", function() {
@@ -116,8 +116,7 @@ function cardGenerator(title, link) {
   deleteButton.addEventListener("click", function() {
     card.remove();
   })
-  //  deleteButton.classList.toggle("card__delete_button:active");
-  
+   
     return card;
  
 }

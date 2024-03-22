@@ -34,19 +34,19 @@
     
 }
 
-.card__delete_button {
+.card__delete-button {
     width: 18px;
     height: 19px;
-    position: absolute;
-    right: 500px;
-    top: 500px;
-    z-index: 2;
+    position: relative;
+    right: -250px;
+    top: -290px;
+
     
 }
 
-
-.card__delete_button:active {
-    background-color: (255, 255, 255, 1);
+.card__delete-button:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+    
 
 }
 
@@ -61,7 +61,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    margin: 25px 15px 31px 21px;
+    margin: auto 15px auto 21px;
 
 }
 
@@ -75,22 +75,20 @@
 
 }
 
+.card__button:hover {
+    background-color:rgba(255, 255, 255, 0.6);
+
+}
 .card__button:active {
     background-color:#000;
 
 }
-
-
 
 .card__button-image {
     width: 21px;
 
 }
 
-.template-card {
-   
-
-}
 
 
 @media screen and (min-width: 320px) and (max-width: 768px) {

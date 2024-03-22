@@ -43,6 +43,10 @@
 
 }
 
+.form_close-button:hover {
+    background-color: rgba(255, 255, 255, 0.6);
+
+}
 
 .form__title {
     font-family: Inter;
@@ -87,7 +91,10 @@
     margin-bottom: 37px;
 }
 
+.form__submit-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
 
+}
 
 
 @media screen and (min-width: 320px) and (max-width: 768px) {
