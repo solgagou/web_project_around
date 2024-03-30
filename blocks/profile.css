@@ -47,14 +47,14 @@
 }
 
 .profile__edit-button {
-    background-color: #000;
+    background-image: url("../images/Edit_Button.png");
+    background-size: cover;
     border: none;
     visibility: visible;
 
 }
 .profile__edit-button:hover {
-    background-color: rgba(255, 255, 255, 0.6);
-   
+    background-image: url("../images/Gray-edit_Button.png");
        
 }
 
@@ -81,19 +81,21 @@
 
 
 .profile__add-button {
-    background-color: #000;
+    background-image: url("../images/Add_Button.png");
     border: none;
-    
+    background-size: cover;
 }
 
 .profile__add-button:hover {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-image: url("../images/gray-Add_Button.png");
+    
     
     
 
 }
 
 .profile__add-image {
+    background-image: url("../images/Add_Button.png");
     width: 150px;
     height: 50px;
     margin: auto;
@@ -145,10 +147,14 @@
     
     }
     
-    /*.profile__edit-button {
-        
+    .profile__edit-button {
+            
+    }
+
+    .profile__edit-button:hover {
+        background-image: url("../images/Gray-edit_Button.png");
     
-    }*/
+    }
     
     .profile__edit-image {
         width: 18px;

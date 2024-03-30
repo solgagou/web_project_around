@@ -74,6 +74,7 @@ function handleCloseCardForm() {
 }
 
 function handleOpenImage(title, link) {
+  PopUpShowImage.classList.add("popup_opened")
   popupImage.src = link; 
   popupTitle.textContent = title;
   

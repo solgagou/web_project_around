@@ -26,25 +26,53 @@
 }
 
 
+.popup_close-button {
+    position: absolute;
+    right: 370px;
+    top: 50px;
+    width: 40px;
+    height: 40px;
+}
+
+.popup__image {
+    display: flex;
+    max-width: 75vw;
+    max-height: 75vh;
+    margin: 90px auto;
+    z-index: 0;
+    
+}
 
 .popup__title {
+    position: absolute;
     color: white;
+    font-family: Inter;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 15px;
+    text-align: left;
+    
+
 }
 
 
 .form_close-button {
-    color:#fff;
+    background-image: url("../images/Close_Icon.png");
     width: 40px;
     height: 40px;
     position: absolute;
     right: -50px;
     top: -50px;
+    background-size: cover;
+    outline: 0;
+    border: 0;
 
 
 }
 
 .form_close-button:hover {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-image: url("../images/gray_Close-icon.png");
+   
 
 }
 
@@ -108,6 +136,7 @@
         margin: 123px 19px auto 19px;
     }
     
+  
         
     .form_close-button {
         width: 26px;
