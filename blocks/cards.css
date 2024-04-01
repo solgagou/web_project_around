@@ -80,11 +80,13 @@
 }
 
 /*.card__button:hover {
-    background-image: url("../images/gray-Add_Button.png");
+    background-image: url("../images/gray_heart.png");
 
 }*/
+
 .card__button_active {
     background-image: url("../images/black_heart.png");
+    
     
 }
 

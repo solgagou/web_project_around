@@ -57,7 +57,6 @@
 
 
 .form_close-button {
-    background-image: url("../images/Close_Icon.png");
     width: 40px;
     height: 40px;
     position: absolute;
@@ -171,6 +170,13 @@
         margin: 45px 22px 25px 22px;
     }
     
+    .popup_close-button {
+        position: absolute;
+        right: 60px;
+        top: 60px;
+        width: 26px;
+        height: 26px;
+    }
 
 }
 
