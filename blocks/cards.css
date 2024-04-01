@@ -48,7 +48,8 @@
 }
 
 .card__delete-button:hover {
-    background-color: rgba(255, 255, 255, 0.6);
+    background-image: url("../images/gray_Trash.png");
+    
     
 
 }
@@ -78,13 +79,13 @@
 
 }
 
-.card__button:hover {
-    background-color:rgba(255, 255, 255, 0.6);
+/*.card__button:hover {
+    background-image: url("../images/gray-Add_Button.png");
 
-}
-.card__button:active {
-    background-color:#000;
-
+}*/
+.card__button_active {
+    background-image: url("../images/black_heart.png");
+    
 }
 
 .card__button-image {

@@ -109,8 +109,9 @@ function cardGenerator(title, link) {
   cardImage.src = link;
   cardTitle.textContent = title;
   likeButton.addEventListener("click", function() {
-    likeButton.classList.toggle("card__button:active");
-  });
+    likeButton.classList.toggle("card__button_active");
+   
+    });
     cardImage.addEventListener("click", function() {
       handleOpenImage(title, link);
     })
