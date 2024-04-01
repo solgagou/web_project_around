@@ -26,7 +26,7 @@
 }
 
 
-.popup_close-button {
+.popup_close_button {
     position: absolute;
     right: 370px;
     top: 50px;
@@ -170,7 +170,7 @@
         margin: 45px 22px 25px 22px;
     }
     
-    .popup_close-button {
+    .popup_close_button {
         position: absolute;
         right: 60px;
         top: 60px;
