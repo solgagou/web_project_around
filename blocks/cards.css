@@ -1,5 +1,6 @@
 .cards {
     gap: 17px;
+    min-height: 120vh;
     width: 880px;
     display: flex;
     flex-wrap: wrap;

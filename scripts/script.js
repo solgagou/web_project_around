@@ -100,7 +100,7 @@ function handleOpenProfileSubmit (evt) {
 }
 
 
-function cardGenerator(title, link) {
+function GenerateCard(title, link) {
   const card = templateCard.cloneNode(true).content.querySelector('.card');
   const cardImage = card.querySelector(".card__image");
   const cardTitle = card.querySelector(".card__title");
@@ -125,14 +125,14 @@ function cardGenerator(title, link) {
 
 
 initialCards.forEach(function (card) {
-  const newCard = cardGenerator(card.name, card.link);
+  const newCard = GenerateCard(card.name, card.link);
   cardArea.append(newCard);
 })
 
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault()
-  const newCard = cardGenerator (inputCardTitle.value, inputCardLink.value);
+  const newCard = GenerateCard (inputCardTitle.value, inputCardLink.value);
   cardArea.prepend(newCard);
   handleCloseCardForm();
   
