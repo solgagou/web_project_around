@@ -1,84 +1,156 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
       content="Un feed de una red social con fotos de un explorador"
     />
-  <meta name="keywords" content="US, around, Cousteau" />
-  <meta name="author" content="Sol Gago" />
-  <link rel="stylesheet" href="./pages/index.css">
+    <meta name="keywords" content="US, around, Cousteau" />
+    <meta name="author" content="Sol Gago" />
+    <link rel="stylesheet" href="./pages/index.css" />
     <title>Around The U.S.</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="page">
-        <header class="header">
-          <img src="./images/logo_around.png" alt="logo of Around" class="header__logo">
-          <img src="./images/Line.jpg" alt="a line" class="header__line">
-        </header>  
-        <main class="profile">
-          <div class="profile__header">
-            <img src="./images/profile_image.jpg" alt="a photo of Jack Cousteau with a red hat" class="profile__photo">
-            <div class="profile__data">
-              <h1 class="profile__name">Jacques Cousteau</h1>
-              <button class="profile__edit-button" type="submit">
-                <img src="./images/Edit_Button.png" class="profile__edit-image" alt="a pencil button">
-              </button>
-              <p class="profile__job">Explorer</p>
-            </div>  
-            <button class="profile__add-button" type="submit">
-              <img src="./images/Add_Button.png" class="profile__add-image" alt="a plus sign">
-            </button>
+      <header class="header">
+        <img
+          src="./images/logo_around.png"
+          alt="logo of Around"
+          class="header__logo"
+        />
+        <img src="./images/Line.jpg" alt="a line" class="header__line" />
+      </header>
+      <main class="profile">
+        <div class="profile__header">
+          <img
+            src="./images/profile_image.jpg"
+            alt="a photo of Jack Cousteau with a red hat"
+            class="profile__photo"
+          />
+          <div class="profile__data">
+            <h1 class="profile__name">Jacques Cousteau</h1>
+            <button class="profile__edit-button" type="submit"></button>
+            <p class="profile__job">Explorer</p>
           </div>
-          <ul class="cards"></ul>
-        </main>
-        <footer class="footer">
-          <p class="footer__copyright">&#169; 2020 Around The U.S.</p>
-        </footer>
-       
-        <div class="popup popup_opened" id="popup-profile">
-          <form class="form popup__form" id="profile-form">
-            <img src="./images/Close_Icon.png" class="form form_close-button" id="close-profile-form">
-            <h2 class="form form__title">Edit profile</h2>
-            <input class="form form__input" type="text" id="input-name" placeholder="Jacques Cousteau" required minlength="2" maxlength="40" value="Jacques Cousteau">
-            <input class="form form__input" type="text" id="input-job" placeholder="Explorer" required minlength="2" maxlength="40" value="Explorer">
-            <button class="form form__submit-button" type="submit" id="submit-profile-button">Save</button>
-          </form>
-        </div> 
-
-        <div class="popup popup_show" id="popup-add-card" required>
-          <form class="form popup__form" id="addcard-form" required>
-            <img class="form form_close-button" src="./images/Close_Icon.png" id="close-addcard-form" alt="an image of a close button">
-            <h2 class="form form__title">Nuevo lugar</h2>
-            <input class="form form__input" type="text" id="input-title" placeholder="Título" required minlength="2" maxlength="40" value="Título">
-            <input class="form form__input" type="text" id="input-url" placeholder="Enlace a la imagen" required minlength="2" value="Enlace a la imagen">
-            <button class="form form__submit-button" type="submit" id="addcard-form-button">Crear</button>
-          </form>
+          <button class="profile__add-button" type="submit">
+            <img
+              src="./images/Add_Button.png"
+              class="profile__add-image"
+              alt="a plus sign"
+            />
+          </button>
         </div>
+        <ul class="cards"></ul>
+      </main>
+      <footer class="footer">
+        <p class="footer__copyright">&#169; 2020 Around The U.S.</p>
+      </footer>
 
-        <div class="popup popup_show" id="popup-show-image">
-          <div class="popup__content">
-            <img class="popup__close-button" src="./images/Close_Icon.png" id="close-image-button" alt="an image of a close button">
-            <img class="popup__image" src=" " alt="title">
-            <h3 class="popup__title"></h3>
-          </div>  
+      <div class="popup popup_opened" id="popup-profile">
+        <form class="form popup__form" id="profile-form">
+          <img
+            src="./images/Close_Icon.png"
+            class="form form_close-button"
+            id="close-profile-form"
+          />
+          <h2 class="form form__title">Edit profile</h2>
+          <input
+            class="form form__input"
+            type="text"
+            id="input-name"
+            placeholder="Jacques Cousteau"
+            required
+            minlength="2"
+            maxlength="40"
+            value="Jacques Cousteau"
+          />
+          <input
+            class="form form__input"
+            type="text"
+            id="input-job"
+            placeholder="Explorer"
+            required
+            minlength="2"
+            maxlength="40"
+            value="Explorer"
+          />
+          <button
+            class="form form__submit-button"
+            type="submit"
+            id="submit-profile-button"
+          >
+            Save
+          </button>
+        </form>
+      </div>
+
+      <div class="popup popup_show" id="popup-add-card" required>
+        <form class="form popup__form" id="addcard-form" required>
+          <img
+            class="form form_close-button"
+            src="./images/Close_Icon.png"
+            id="close-addcard-form"
+            alt="an image of a close button"
+          />
+          <h2 class="form form__title">Nuevo lugar</h2>
+          <input
+            class="form form__input"
+            type="text"
+            id="input-title"
+            placeholder="Título"
+            required
+            minlength="2"
+            maxlength="40"
+          />
+          <input
+            class="form form__input"
+            type="text"
+            id="input-url"
+            placeholder="Enlace a la imagen"
+            required
+            minlength="2"
+          />
+          <button
+            class="form form__submit-button"
+            type="submit"
+            id="addcard-form-button"
+          >
+            Crear
+          </button>
+        </form>
+      </div>
+
+      <div class="popup popup_show" id="popup-show-image">
+        <div class="popup__content">
+          <img
+            class="popup__close-button"
+            src="./images/Close_Icon.png"
+            id="close-image-button"
+            alt="an image of a close button"
+          />
+          <img class="popup__image" src=" " alt="title" />
+          <h3 class="popup__title"></h3>
         </div>
-        
+      </div>
+
       <template class="template-card">
-            <li class="card">
-                <img src=" " class="card__image">
-                <img class="card__delete-button" src="./images/Trash_icon.png" id="delete-button" alt="an image of a trash can">
-                <div class="card__info">
-                  <p class="card__title"></p>
-                  <button class="card__button" type="submit">
-                    <img src="./images/corazon.png" class="card__button-image" alt="an image of a heart button">
-                  </button>  
-                </div> 
-            </li>
-        </template>
+        <li class="card">
+          <img src=" " class="card__image" />
+          <img
+            class="card__delete-button"
+            src="./images/Trash_icon.png"
+            id="delete-button"
+            alt="an image of a trash can"
+          />
+          <div class="card__info">
+            <p class="card__title"></p>
+            <button class="card__button" type="submit"></button>
+          </div>
+        </li>
+      </template>
       <script src="./scripts/script.js"></script>
-    </div>    
-</body>
+    </div>
+  </body>
 </html>
