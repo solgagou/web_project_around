@@ -85,7 +85,7 @@ function handleOpenProfileSubmit(evt) {
   handleCloseProfileForm();
 }
 
-function GenerateCard(title, link) {
+function generateCard(title, link) {
   const card = templateCard.cloneNode(true).content.querySelector(".card");
   const cardImage = card.querySelector(".card__image");
   const cardTitle = card.querySelector(".card__title");
@@ -93,6 +93,7 @@ function GenerateCard(title, link) {
   const deleteButton = card.querySelector(".card__delete-button");
   cardImage.src = link;
   cardTitle.textContent = title;
+  cardImage.alt = title;
   likeButton.addEventListener("click", function () {
     likeButton.classList.toggle("card__button_active");
   });
@@ -107,13 +108,13 @@ function GenerateCard(title, link) {
 }
 
 initialCards.forEach(function (card) {
-  const newCard = GenerateCard(card.name, card.link);
+  const newCard = generateCard(card.name, card.link);
   cardArea.append(newCard);
 });
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  const newCard = GenerateCard(inputCardTitle.value, inputCardLink.value);
+  const newCard = generateCard(inputCardTitle.value, inputCardLink.value);
   cardArea.prepend(newCard);
   handleCloseCardForm();
 }
