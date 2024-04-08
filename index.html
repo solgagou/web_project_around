@@ -60,22 +60,27 @@
             class="form form__input"
             type="text"
             id="input-name"
-            placeholder="Jacques Cousteau"
+            placeholder="Nombre"
             required
             minlength="2"
             maxlength="40"
-           
+            value="Jacques Cousteau" 
           />
+          <span class="form__input-error">Por favor, rellena este campo.</span>
           <input
             class="form form__input"
             type="text"
             id="input-job"
-            placeholder="Explorer"
+            placeholder="Acerca de"
             required
             minlength="2"
-            maxlength="40"
+            maxlength="200"
+            value="Explorer">
+            <span class="form__input-error">Por favor, rellena este campo.</span>
+            
+            <span class="form__input-error"></span>Por favor extienda este texto a 2 caracteres o más. Actualmente estás usando 1 carácter.</span>
            
-          />
+        
           <button
             class="form form__submit-button"
             type="submit"
@@ -103,16 +108,16 @@
             required
             minlength="2"
             maxlength="40"
-            value="Título"
-          />
+            value="Título">
+            <span class="title-input-error form__input-error">Por favor, rellena este campo.</span>
           <input
             class="form form__input"
-            type="text"
+            type="url"
             id="input-url"
             placeholder="Enlace a la imagen"
             required
-            minlength="2"
-          />
+            minlength="2">
+            <span class="url-input-error form__input-error">Por favor, introduce una dirección web.</span>
           <button
             class="form form__submit-button"
             type="submit"
@@ -151,7 +156,8 @@
           </div>
         </li>
       </template>
-      <script src="./scripts/script.js"></script>
+      <script src="./scripts/index.js"></script>
+      <script src="./scripts/validate.js"></script>
     </div>
   </body>
 </html>
