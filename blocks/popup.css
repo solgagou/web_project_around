@@ -95,6 +95,33 @@
   margin-bottom: 30px;
 }
 
+
+.form__input-error {
+  display: none;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 0, 0, 1);
+  line-height: 14px;
+  margin: 6px auto 9px 36px;
+  
+  
+  
+}
+
+.form__input-error_active {
+  
+}
+
+.title-input-error {
+  
+} 
+
+.url-input-error {
+
+}
+
+
 .form__submit-button {
   font-family: Inter;
   font-size: 18px;
