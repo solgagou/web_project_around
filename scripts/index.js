@@ -53,7 +53,16 @@ function handleOpenProfileForm() {
 
 function handleCloseProfileForm() {
   popup.style.display = "none";
+
 }
+
+function handleCloseProfileFormEvent(event) {
+  if (event.target === popup || event.key === "Escape") {
+    handleCloseProfileForm();
+  }
+}
+
+
 
 function handleOpenCardForm() {
   popUpCard.classList.add("popup_opened");
@@ -62,6 +71,7 @@ function handleOpenCardForm() {
 function handleCloseCardForm() {
   popUpCard.classList.remove("popup_opened");
 }
+
 
 function handleOpenImage(title, link) {
   PopUpShowImage.classList.add("popup_opened");
@@ -83,6 +93,15 @@ function handleOpenProfileSubmit(evt) {
   profileJobElement.textContent = inputProfileJob.value;
 
   handleCloseProfileForm();
+}
+
+
+function handleClosePopup(popupElement) {
+  return function(event) {
+    if (event.target === popupElement || event.key === "Escape") {
+      popupElement.classList.remove("popup_opened");
+    }
+  };
 }
 
 function generateCard(title, link) {
@@ -119,6 +138,8 @@ function handleAddCardSubmit(evt) {
   handleCloseCardForm();
 }
 
+
+
 openFormButton.addEventListener("click", handleOpenProfileForm);
 closeButton.addEventListener("click", handleCloseProfileForm);
 
@@ -128,3 +149,12 @@ closeImage.addEventListener("click", handleCloseImage);
 
 formProfileButton.addEventListener("click", handleOpenProfileSubmit);
 FormCard.addEventListener("submit", handleAddCardSubmit);
+
+PopUpShowImage.addEventListener("click", handleClosePopup(PopUpShowImage));
+popup.addEventListener("click", handleClosePopup(popup));
+popup.addEventListener("click", handleCloseProfileFormEvent);
+popUpCard.addEventListener("click", handleClosePopup(popUpCard));
+document.addEventListener("keydown", handleCloseProfileFormEvent);
+document.addEventListener("keydown", handleClosePopup(PopUpShowImage));
+document.addEventListener("keydown", handleClosePopup(popup));
+document.addEventListener("keydown", handleClosePopup(popUpCard));
