@@ -25,10 +25,14 @@
     if (!inputElement.validity.valid) {
         showInputError(formElement, inputElement, inputElement.validationMessage);
     } else {
-        hideInputError(formElementf, inputElement);
+        hideInputError(formElement, inputElement);
     }
   };
   
+  formElement.addEventListener("submit", function (evt) {
+    evt.preventDefault();
+});
+
   
   const setEventListeners = (formElement, inputElement) => {
     const inputList = Array.from(formElement.querySelectorAll(".form__input"));
@@ -50,7 +54,7 @@
     });
   };
   
-  enableValidation();
+  
   
   enableValidation({
     formSelector: ".popup__form",
