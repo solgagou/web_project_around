@@ -1,9 +1,8 @@
-
 const popup = document.querySelector(".popup");
 
 popup.style.display = "none";
 
-export function _handleOpenProfileForm() {
+export function handleOpenProfileForm() {
   popup.style.display = "flex";
 }
 
@@ -14,7 +13,7 @@ export function handleCloseProfileForm() {
 
 export function handleCloseProfileFormEvent(event) {
   if (event.target === popup || event.key === "Escape") {
-    _handleCloseProfileForm();
+    handleCloseProfileForm();
   }
 }
 
@@ -27,7 +26,7 @@ export function handleOpenProfileSubmit(evt) {
   profileNameElement.textContent = inputProfileName.value;
   profileJobElement.textContent = inputProfileJob.value;
 
-  _handleCloseProfileForm();
+  handleCloseProfileForm();
 }
 
 export function handleOpenCardForm() {
@@ -42,7 +41,7 @@ export function handleAddCardSubmit(evt) {
   evt.preventDefault();
   const newCard = _generateCard(inputCardTitle.value, inputCardLink.value);
   cardArea.prepend(newCard);
-  _handleCloseCardForm();
+  handleCloseCardForm();
 }
 
 export function handleOpenImage(title, link) {

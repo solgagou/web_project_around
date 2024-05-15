@@ -1,4 +1,4 @@
-import { FormValidator} from "./FormValidator.js";
+import { FormValidator } from "./FormValidator.js";
 import { Card } from "./Cards.js";
 import { handleOpenProfileForm, 
   handleCloseProfileForm, 
@@ -16,7 +16,6 @@ const openFormButton = document.querySelector(".profile__edit-button");
 const popup = document.querySelector(".popup");
 
 const formElementProfile =  document.querySelector("#profile-form");
-//const inputElement = formElement.querySelector(".form__input");
 const formElementCard =  document.querySelector("#addcard-form");
 
 const closeButton = document.querySelector("#close-profile-form");
@@ -92,10 +91,10 @@ document.addEventListener("keydown", handleClosePopup(popUpCard));
 
 const settings = {
   formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
+  inputSelector: ".form__input",
+  submitButtonSelector: "form__submit-button",
+  inactiveButtonClass: "form__submit-button_disabled",
+  inputErrorClass: "form__input-error",
   errorClass: "popup__error_visible"
 };
 
