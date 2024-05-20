@@ -58,7 +58,7 @@ const initialCards = [
 
 
 initialCards.forEach(function (card) {
-  const newCard = new Card(card.name, card.link, templateCard);
+  const newCard = new Card(card.name, card.link, templateCard, handleOpenImage);
   cardArea.append(newCard.generateCard());
 });
 

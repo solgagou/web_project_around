@@ -7,7 +7,6 @@ export class FormValidator {
         this.inputErrorClass = settings.inputErrorClass;
         this.errorClass = settings.errorClass;
         this.buttonElement = this.formElement.querySelector(settings.submitButtonSelector);
-        console.log(this.buttonElement)
         this.inputList = Array.from(this.formElement.querySelectorAll(this.inputSelector));
        
     }
@@ -46,6 +45,7 @@ export class FormValidator {
         
         if (this._hasInvalidInput()) {
             this.buttonElement.classList.add(this.inactiveButtonClass);
+            this.buttonElement.setAttribute("disabled", true);
         } else {
             this.buttonElement.classList.remove(this.inactiveButtonClass);
         }
