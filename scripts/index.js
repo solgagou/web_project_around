@@ -85,7 +85,7 @@ document.addEventListener("keydown", handleClosePopup(popUpCard));
 const settings = {
   formSelector: ".popup__form",
   inputSelector: ".form__input",
-  submitButtonSelector: "form__submit-button",
+  submitButtonSelector: ".form__submit-button",
   inactiveButtonClass: "form__submit-button_disabled",
   inputErrorClass: "form__input-error",
   errorClass: "popup__error_visible"

@@ -7,6 +7,7 @@ export class FormValidator {
         this.inputErrorClass = settings.inputErrorClass;
         this.errorClass = settings.errorClass;
         this.buttonElement = this.formElement.querySelector(settings.submitButtonSelector);
+        console.log(this.buttonElement)
         this.inputList = Array.from(this.formElement.querySelectorAll(this.inputSelector));
        
     }
@@ -42,12 +43,13 @@ export class FormValidator {
 
     }
     _toggleButtonState() {
+        
         if (this._hasInvalidInput()) {
             this.buttonElement.classList.add(this.inactiveButtonClass);
         } else {
             this.buttonElement.classList.remove(this.inactiveButtonClass);
         }
-
+        ;
     }
 
     _setEventListeners() {
