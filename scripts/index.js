@@ -14,26 +14,19 @@ import { handleOpenProfileForm,
 
 const openFormButton = document.querySelector(".profile__edit-button");
 const popup = document.querySelector(".popup");
-
 const formElementProfile =  document.querySelector("#profile-form");
 const formElementCard =  document.querySelector("#addcard-form");
-
 const closeButton = document.querySelector("#close-profile-form");
-const inputProfileName = document.querySelector("#input-name");
-const inputProfileJob = document.querySelector("#input-job");
 const formProfileButton = document.querySelector("#submit-profile-button");
 const btnAddCard = document.querySelector(".profile__add-button");
 const popUpCard = document.querySelector("#popup-add-card");
 const btnCloseCardForm = document.querySelector("#close-addcard-form");
 const templateCard = document.querySelector(".template-card");
 const cardArea = document.querySelector(".cards");
-const inputCardTitle = document.querySelector("#input-title");
-const inputCardLink = document.querySelector("#input-url");
 const FormCard = document.querySelector("#addcard-form");
 const PopUpShowImage = document.querySelector("#popup-show-image");
 const closeImage = document.querySelector("#close-image-button");
-const popupTitle = document.querySelector(".popup__title");
-const popupImage = document.querySelector(".popup__image");
+
 
 
 const initialCards = [
