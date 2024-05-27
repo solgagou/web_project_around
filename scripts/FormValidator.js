@@ -48,6 +48,7 @@ export class FormValidator {
             this.buttonElement.setAttribute("disabled", true);
         } else {
             this.buttonElement.classList.remove(this.inactiveButtonClass);
+            this.buttonElement.removeAttribute("disabled");
         }
         ;
     }
@@ -56,8 +57,10 @@ export class FormValidator {
         this.formElement.addEventListener("submit", (evt) => {
             evt.preventDefault();
         });
+
         this.inputList.forEach((inputElement) => {
             this._checkInputValidity(inputElement);
+            this._toggleButtonState();
             
             inputElement.addEventListener("input", () => {
                 this._checkInputValidity(inputElement);

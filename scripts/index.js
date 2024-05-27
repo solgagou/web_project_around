@@ -69,7 +69,9 @@ closeButton.addEventListener("click", handleCloseProfileForm);
 
 btnAddCard.addEventListener("click", handleOpenCardForm);
 btnCloseCardForm.addEventListener("click", handleCloseCardForm);
-closeImage.addEventListener("click", handleCloseImage);
+closeImage.addEventListener("click", () => { 
+  handleCloseImage(popup);
+});
 
 formProfileButton.addEventListener("click", handleOpenProfileSubmit);
 FormCard.addEventListener("submit", handleAddCardSubmit);

@@ -8,6 +8,7 @@ const inputCardTitle = document.querySelector("#input-title");
 const inputCardLink = document.querySelector("#input-url");
 const popupTitle = document.querySelector(".popup__title");
 const popupImage = document.querySelector(".popup__image");
+const miPopupImage = document.querySelector("#popup-add-card");
 
 popup.style.display = "none";
 
@@ -39,11 +40,11 @@ export function handleOpenProfileSubmit(evt) {
 }
 
 export function handleOpenCardForm() {
-  popUpCard.classList.add("popup_opened");
+  miPopupImage.classList.add("popup_opened");
 }
 
 export function handleCloseCardForm() {
-  popUpCard.classList.remove("popup_opened");
+  miPopupImage.classList.remove("popup_opened");
 }
 
 export function handleAddCardSubmit(evt) {
