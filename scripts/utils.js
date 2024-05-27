@@ -1,3 +1,5 @@
+//import { PopUpShowImage } from "./index";
+
 const popup = document.querySelector(".popup");
 const inputProfileName = document.querySelector("#input-name");
 const inputProfileJob = document.querySelector("#input-job");
@@ -6,8 +8,6 @@ const inputCardTitle = document.querySelector("#input-title");
 const inputCardLink = document.querySelector("#input-url");
 const popupTitle = document.querySelector(".popup__title");
 const popupImage = document.querySelector(".popup__image");
-
-
 
 popup.style.display = "none";
 

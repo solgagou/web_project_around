@@ -1,3 +1,5 @@
+
+
 export class Card  {
     constructor(title, link, template, handleOpenImage) {
         this.title = title;
@@ -25,7 +27,8 @@ export class Card  {
     _handleOpenImageCard() {
         this.cardImage = this.card.querySelector(".card__image");
         this.cardImage.addEventListener("click", () => {
-        this.handleOpenImage(this.title, this.link); 
+        const PopUpShowImage = document.querySelector("#popup-show-image");
+        this.handleOpenImage(PopUpShowImage, this.title, this.link); 
     
         });
     }

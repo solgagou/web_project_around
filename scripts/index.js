@@ -1,3 +1,5 @@
+//export const PopUpShowImage = document.querySelector("#popup-show-image");
+
 import { FormValidator } from "./FormValidator.js";
 import { Card } from "./Cards.js";
 import { handleOpenProfileForm, 
@@ -26,7 +28,6 @@ const cardArea = document.querySelector(".cards");
 const FormCard = document.querySelector("#addcard-form");
 const PopUpShowImage = document.querySelector("#popup-show-image");
 const closeImage = document.querySelector("#close-image-button");
-
 
 
 const initialCards = [
