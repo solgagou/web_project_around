@@ -1,5 +1,3 @@
-
-
 export class Card  {
     constructor(title, link, template, handleOpenImage) {
         this.title = title;

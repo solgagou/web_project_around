@@ -1,4 +1,4 @@
-//import { PopUpShowImage } from "./index";
+import { Card } from "./Cards.js";
 
 const popup = document.querySelector(".popup");
 const inputProfileName = document.querySelector("#input-name");
@@ -9,6 +9,7 @@ const inputCardLink = document.querySelector("#input-url");
 const popupTitle = document.querySelector(".popup__title");
 const popupImage = document.querySelector(".popup__image");
 const miPopupImage = document.querySelector("#popup-add-card");
+const cardArea = document.querySelector(".cards");
 
 popup.style.display = "none";
 
@@ -49,8 +50,8 @@ export function handleCloseCardForm() {
 
 export function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  const newCard = _generateCard(inputCardTitle.value, inputCardLink.value);
-  cardArea.prepend(newCard);
+  const newCard = new Card(inputCardTitle.value, inputCardLink.value, document.querySelector(".template-card"), handleOpenImage);
+  cardArea.prepend(newCard.generateCard());
   handleCloseCardForm();
 }
 

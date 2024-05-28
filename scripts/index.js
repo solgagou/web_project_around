@@ -1,5 +1,3 @@
-//export const PopUpShowImage = document.querySelector("#popup-show-image");
-
 import { FormValidator } from "./FormValidator.js";
 import { Card } from "./Cards.js";
 import { handleOpenProfileForm, 
@@ -95,5 +93,7 @@ const settings = {
 };
 
 const validateFormProfile = new FormValidator(formElementProfile, settings);
-validateFormProfile._setEventListeners();
+validateFormProfile.enableValidation();
+
 const validateFormCard = new FormValidator(formElementCard, settings);
+validateFormCard.enableValidation();
