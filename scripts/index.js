@@ -11,6 +11,12 @@ import { handleOpenProfileForm,
   handleCloseImage,
   handleClosePopup } from "./utils.js";
 
+import { Section } from "./Section.js";
+import { PopupWithImage } from "./PopupWithImage.js";
+import { PopupWithForm } from "./PopupWithForm.js";
+import { UserInfo } from "./UserInfo.js";
+
+
 
 const openFormButton = document.querySelector(".profile__edit-button");
 const popup = document.querySelector(".popup");
@@ -30,34 +36,34 @@ const closeImage = document.querySelector("#close-image-button");
 
 const initialCards = [
   {
-    name: "Valle de Yosemite",
+    title: "Valle de Yosemite",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
   },
   {
-    name: "Lago Louise",
+    title: "Lago Louise",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
   },
   {
-    name: "Montañas Calvas",
+    title: "Montañas Calvas",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
   },
   {
-    name: "Latemar",
+    title: "Latemar",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
   },
   {
-    name: "Parque Nacional de la Vanoise",
+    title: "Parque Nacional de la Vanoise",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
   },
   {
-    name: "Lago di Braies",
+    title: "Lago di Braies",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
   },
 ];
 
 
 initialCards.forEach(function (card) {
-  const newCard = new Card(card.name, card.link, templateCard, handleOpenImage);
+  const newCard = new Card(card.title, card.link, templateCard, handleOpenImage);
   cardArea.append(newCard.generateCard());
 });
 
