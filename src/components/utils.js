@@ -1,4 +1,4 @@
-import { Card } from "./Cards.js";
+import { Card } from "../components/Cards.js";
 
 const popup = document.querySelector(".popup");
 const inputProfileName = document.querySelector("#input-name");
@@ -31,8 +31,7 @@ export function handleCloseProfileFormEvent(event) {
 export function handleOpenProfileSubmit(evt) {
   evt.preventDefault();
 
-  const profile
-  Element = document.querySelector(".profile__name");
+  const profileNameElement = document.querySelector(".profile__name");
   const profileJobElement = document.querySelector(".profile__job");
 
   profileNameElement.textContent = inputProfileName.value;
