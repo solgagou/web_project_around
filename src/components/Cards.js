@@ -1,3 +1,15 @@
+const cardArea = document.querySelector(".cards");
+const inputCardTitle = document.querySelector("#input-title");
+const inputCardLink = document.querySelector("#input-url");
+
+
+export function handleAddCardSubmit(evt) {
+  evt.preventDefault();
+  const newCard = new Card(inputCardTitle.value, inputCardLink.value, document.querySelector(".template-card"), handleOpenImage);
+  cardArea.prepend(newCard.generateCard());
+  handleCloseCardForm();
+}
+
 export class Card  {
     constructor(title, link, template, handleCardClick) {
         this.title = title;

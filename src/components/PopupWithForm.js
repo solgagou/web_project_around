@@ -13,12 +13,44 @@ el detector de eventos click para el icono cerrar.
 
 Crea una instancia de la clase PopupWithForm para cada popup.
 */
+import Popup from './Popup.js';
+
+const inputProfileName = document.querySelector("#input-name");
+const inputProfileJob = document.querySelector("#input-job");
+
+
+export function handleOpenProfileForm() {
+  popup.style.display = "flex";
+}
+
+export function handleCloseProfileForm() {
+  popup.style.display = "none";
+
+}
+
+export function handleCloseProfileFormEvent(event) {
+  if (event.target === popup || event.key === "Escape") {
+    handleCloseProfileForm();
+  }
+}
+
+export function handleOpenProfileSubmit(evt) {
+  evt.preventDefault();
+
+  const profileNameElement = document.querySelector(".profile__name");
+  const profileJobElement = document.querySelector(".profile__job");
+
+  profileNameElement.textContent = inputProfileName.value;
+  profileJobElement.textContent = inputProfileJob.value;
+
+  handleCloseProfileForm();
+}
 
 export class PopupWithForm extends Popup {
     constructor(selector, handleFormSubmit) {
         super(selector);
-        this.handleFormSubmit = handleFormSubmit;
-        this.formElement = this.popupElement.querySelector('form');
+        this._handleFormSubmit = handleFormSubmit;
+        this._formElement = this._popup.querySelector('form');
       }
     
     _getInputValues() {

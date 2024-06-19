@@ -18,8 +18,21 @@ también debe cerrarse cuando los usuarios hacen clic en el área sombreada
 del formulario.
 
 */
+const popup = document.querySelector(".popup");
 
-export class Popup {
+
+
+popup.style.display = "none";
+
+export function handleClosePopup(popupElement) {
+  return function(event) {
+    if (event.target === popupElement || event.key === "Escape") {
+      popupElement.classList.remove("popup_opened");
+    }
+  };
+}
+
+export default class Popup {
   constructor(selector) {
     this._popup = document.querySelector(selector);
   }
