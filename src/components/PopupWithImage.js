@@ -1,9 +1,3 @@
-/*-Creación de la clase PopupWithImage
-Crea la clase PopupWithImage como una clase hija de Popup. 
-Esta clase tiene que cambiar el método padre open(). 
-En el método open() de la clase PopupWithImage, debes añadir una imagen al popup y
- el correspondiente atributo de imagen src junto con una leyenda para la imagen.
-*/
 import Popup from './Popup.js'; 
 
 const miPopupImage = document.querySelector("#popup-add-card");
@@ -31,7 +25,7 @@ export class PopupWithImage extends Popup {
       this._popupImage.src = imageSrc;
       this._popupImage.alt = imageCaption;
       this._popupTitle.textContent = imageCaption;
-      super.open();  // Llama al método `open` de la clase base `Popup`
+      super.open();  
     }
   }
   
@@ -39,4 +33,4 @@ export class PopupWithImage extends Popup {
     
 
         
-    //igual que withform
+    
