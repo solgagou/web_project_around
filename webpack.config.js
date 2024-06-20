@@ -12,7 +12,6 @@ module.exports = {
     filename: 'main.js',
      path: path.resolve(__dirname, 'dist'),
     publicPath: "",
-     clean: true,
   },
   target: ['web', 'es5'],
   stats: { children: true },
@@ -51,6 +50,9 @@ module.exports = {
     template: "./src/index.html" 
   }),
   new CleanWebpackPlugin(),
-  new MiniCssExtractPlugin()
+  new MiniCssExtractPlugin({
+    filename: '[name].css',
+    chunkFilename: '[id].css',
+  })
 ]
 }
