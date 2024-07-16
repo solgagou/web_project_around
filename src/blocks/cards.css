@@ -58,7 +58,7 @@
   margin: auto 15px auto 21px;
 }
 
-.card__button {
+.card__like-button {
   border: none;
   background-color: #fff;
   margin: auto 20px auto auto;
@@ -69,12 +69,12 @@
   background-position: center;
 }
 
-/*.card__button:hover {
+/*.card__like-button:hover {
     background-image: url("../images/gray_heart.png");
 
 }*/
 
-.card__button_active {
+.card__like-button_active {
   background-image: url("../images/black_heart.png");
 }
 
@@ -95,7 +95,7 @@
   .card__title {
   }
 
-  .card__button {
+  .card__like-button {
     border: none;
     background-color: #fff;
     width: 21px;

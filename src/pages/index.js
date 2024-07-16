@@ -1,14 +1,17 @@
 import "./index.css";
 import { FormValidator } from "../components/FormValidator.js";
 import { Card } from "../components/Cards.js";
-import yosemiteImage from "../images/yosemite.jpg";
+/*import yosemiteImage from "../images/yosemite.jpg";
 import lakeLouiseImage from "../images/lake-louise.jpg";
 import baldMountainsImage from "../images/bald-mountains.jpg";
 import latemarImage from "../images/latemar.jpg";
 import vanoiseImage from "../images/vanoise.jpg";
-import lagoImage from "../images/lago.jpg";
-import { handleOpenImage, 
-  handleCloseImage} from "../components/utils.js"; 
+import lagoImage from "../images/lago.jpg";*/
+import { Section } from "../components/Section.js";
+import Api from "../components/Api.js";
+import UserInfo from "../components/UserInfo.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { PopupWithImage } from "../components/PopupWithImage.js";
 
 const openFormButton = document.querySelector(".profile__edit-button");
 const popup = document.querySelector(".popup");
@@ -29,7 +32,72 @@ const inputCardLink = document.querySelector("#input-url");
 const inputProfileName = document.querySelector("#input-name");
 const inputProfileJob = document.querySelector("#input-job");
 const miPopupImage = document.querySelector("#popup-add-card");
+const profileAvatar = document.querySelector(".profile__avatar");
+//const profileAvatarUrl = document.querySelector()
 
+const user = new UserInfo({
+  userName: ".profile__name",
+  userJob: ".profile__job",
+  userAvatar: ".profile__avatar",
+  userId: "",
+  _id: ""
+});
+
+
+const api = new Api ({
+  baseUrl: "https://around.nomoreparties.co/v1/web_es_11",
+  headers: {
+      authorization: "58122d55-c87e-4425-b657-5b9974dd4029", "Content-Type": "application/json",
+  },
+});
+
+
+api.getUserInfo().then((result) => {
+  inputProfileName.value = result.name;
+  inputProfileJob.value = result.job;
+  profileAvatar.src = result.avatar;
+  user.setUserInfo(result);
+  }).catch(error => {
+    console.error('Error:', error);
+  }); 
+
+  api.getInitialCards().then((result) => {
+    const CardSection = new Section(
+      {
+        items: result, 
+        renderer: (item) => {
+            const newCard = new Card(item, user.getUserId(), () => {
+              api.addLike(newCard._id);
+            },
+            () => {
+              api.removeLike(newCard._id);
+            }
+          ).generateCard();
+            CardSection.prepend(newCard);
+        },
+      },
+      ".elements"
+    );
+      CardSection.renderItems();
+  }).catch(error => {
+    console.error('Error:', error);
+  }); 
+
+const popUpProfile = new PopupWithForm("#popup-profile", (inputs) => {
+   api.editProfile(inputs).then((result) => {
+    inputProfileName.value = result.name;
+    inputProfileJob.value = result.job;
+    profileAvatar.src = result.avatar;
+   });
+});
+
+const popUpCards = new PopupWithImage("#popup-add-card", (inputs) => {
+  templateCard = result.templateCard;
+  api.addCard(inputs).then((result) => {
+    const newCard = new Card(result, () => {}).generateCard();
+    cardSection.addItem(newCard);
+  });
+});
 
 const settings = {
   formSelector: ".popup__form",
@@ -39,39 +107,15 @@ const settings = {
   inputErrorClass: "form__input-error",
   errorClass: "popup__error_visible"
 };
-const initialCards = [
-  {
-    title: "Valle de Yosemite",
-    link: yosemiteImage,
-  },
-  {
-    title: "Lago Louise",
-    link: lakeLouiseImage,
-  },
-  {
-    title: "Montañas Calvas",
-    link: baldMountainsImage,
-  },
-  {
-    title: "Latemar",
-    link: latemarImage,
-  },
-  {
-    title: "Parque Nacional de la Vanoise",
-    link: vanoiseImage,
-  },
-  {
-    title: "Lago di Braies",
-    link: lagoImage,
-  },
-];
-
 
 const validateFormProfile = new FormValidator(formElementProfile, settings);
 validateFormProfile.enableValidation();
 
 const validateFormCard = new FormValidator(formElementCard, settings);
 validateFormCard.enableValidation();
+
+const groupId = 'web_es_11';
+const token = '58122d55-c87e-4425-b657-5b9974dd4029';
 
 popup.style.display = "none";
 
@@ -85,10 +129,12 @@ function handleClosePopup(popupElement) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  const newCard = new Card(inputCardTitle.value, inputCardLink.value, document.querySelector(".template-card"), handleOpenImage);
+  const newCard = new Card(inputCardTitle.value, inputCardLink.value, document.querySelector(".template-card"), likes,
+  _id, owner, userId, handleOpenImage);
   cardArea.prepend(newCard.generateCard());
   handleCloseCardForm();
 }
+
 
 
 function handleOpenProfileForm() {
@@ -149,7 +195,5 @@ document.addEventListener("keydown", handleClosePopup(PopUpShowImage));
 document.addEventListener("keydown", handleClosePopup(popup));
 document.addEventListener("keydown", handleClosePopup(popUpCard)); 
 
-initialCards.forEach(function (card) {
-  const newCard = new Card(card.title, card.link, templateCard, /* handleOpenImage */);
-  cardArea.append(newCard.generateCard());
-});
+
+

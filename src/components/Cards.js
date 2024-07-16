@@ -1,31 +1,26 @@
-
-export function handleAddCardSubmit(evt) {
-  evt.preventDefault();
-  const newCard = new Card(inputCardTitle.value, inputCardLink.value, document.querySelector(".template-card"), handleOpenImage);
-  cardArea.prepend(newCard.generateCard());
-  handleCloseCardForm();
-} 
-
 export class Card {
-  constructor(title, link, template, handleCardClick) {
-
-    this._title = title;
-    this._link = link;
-    this._template = template;
-    this._handleCardClick = handleCardClick;
+  constructor(item, userId, handleRemoveCard, handleAddLike, handleRemoveLike) {
+    this._title = item.title;
+    this._link = item.link;
+    this._likes = item.likes;
+    this._id = item._id;
+    this._owner = item.owner;
+    this._userId = userId;
+    //this._card = this._getTemplate();
+    this._template = document.querySelector(".template-card").content.cloneNode(true);
+    this.handleRemoveCard = handleRemoveCard;
+    this.handleAddLike = handleAddLike;
+    this.handleRemoveLike = handleRemoveLike;
   }
 
+  
   _getTemplate() {
-    return this._template.content.cloneNode(true);
+    return this._template.querySelector(".card").cloneNode(true);
+    //return template.cloneNode(true).content.querySelector(".template-card");
+    //return this._template.content.cloneNode(true);
+    
   }
 
-  _handleLikeButton() {
-    this._likeButton.classList.toggle('card__button_active');
-  }
-
-  _handleRemoveCard() {
-    this._cardElement.remove()
-  }
 
   _setEventListeners() {
     this._imageElement.addEventListener('click', () => {
@@ -39,7 +34,15 @@ export class Card {
     this._likeButton.addEventListener('click', () => {
       this._handleLikeButton();
     });
+    const hasUserLiked = this._likes.some((like) => like._id !== this._userId);
+    if (hasUserLiked) {
+      this.handleRemoveLike(this._id);
+      this._likeButton.classList.add('card__like-button_active');
+    } else {
+      this.handleAddLike(this._id);
+    }
   }
+
 
   _setProperties() {
     this._imageElement.src = this._link;
@@ -49,16 +52,21 @@ export class Card {
 
   generateCard() {
     this._element = this._getTemplate();
-
     this._cardElement = this._element.querySelector('.card');
     this._imageElement = this._element.querySelector('.card__image');
     this._titleElement = this._element.querySelector('.card__title');
-    this._likeButton = this._element.querySelector('.card__button');
+    this._likeButton = this._element.querySelector('.card__like-button');
     this._deleteButton = this._element.querySelector('.card__delete-button');
-
+      if (this._owner._id !== this._userId) {
+        this._deleteButton.remove();
+      }
+    this._likesCounter = this._element.querySelector('.card__like-number');
+    this._likesCounter.textContent = this._likes.length;
     this._setProperties();
     this._setEventListeners();
-
+    
     return this._element;
   }
 }
+
+

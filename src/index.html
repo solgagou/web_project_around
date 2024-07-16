@@ -26,8 +26,9 @@
           <img
             src="<%=require('./images/profile_image.jpg')%>"
             alt="a photo of Jack Cousteau with a red hat"
-            class="profile__photo"
+            class="profile__photo profile__avatar"
           />
+          <img class="profile__avatar-edit-icon" src="<%=require("../src/images/Avatar_edit_icon.png")%>">
           <div class="profile__data">
             <h1 class="profile__name">Jacques Cousteau</h1>
             <button class="profile__edit-button" type="submit"></button>
@@ -142,6 +143,27 @@
         </div>
       </div>
 
+      <div class="popup popup_show" id="popup-delete-card">
+        <div class="popup__content">
+          <img
+            class="popup__close-button"
+            src="<%=require('./images/Close_Icon.png')%>"
+            id="close-image-button"
+            alt="an image of a close button"
+          />
+          <img class="popup__image" src=" " alt="title" />
+          <h1 class="popup__title">¿Estás seguro?</h1>
+          <button
+            class="popup__delete-button"
+            type="submit"
+            id="deletecard-button"
+
+          >
+            Sí
+          </button>
+        </div>
+      </div>
+
       <template class="template-card">
         <li class="card">
           <img src=" " class="card__image" alt=" " />
@@ -153,7 +175,8 @@
           />
           <div class="card__info">
             <p class="card__title"></p>
-            <button class="card__button" type="submit"></button>
+            <button class="card__like-button" type="submit"></button>
+            <span class= "card__like-number">8</span>
           </div>
         </li>
       </template>
