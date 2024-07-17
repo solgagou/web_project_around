@@ -40,8 +40,7 @@ const user = new UserInfo({
   userJob: ".profile__job",
   userAvatar: ".profile__avatar",
   userId: "",
-  _id: ""
-});
+  });
 
 
 const api = new Api ({
@@ -61,22 +60,23 @@ api.getUserInfo().then((result) => {
     console.error('Error:', error);
   }); 
 
+  
   api.getInitialCards().then((result) => {
     const CardSection = new Section(
       {
         items: result, 
         renderer: (item) => {
             const newCard = new Card(item, user.getUserId(), () => {
-              api.addLike(newCard._id);
+              api.addLike(item._id);
             },
             () => {
-              api.removeLike(newCard._id);
-            }
-          ).generateCard();
-            CardSection.prepend(newCard);
+              api.removeLike(item._id);
+            })
+              .generateCard();
+            CardSection.addItem(newCard);
         },
       },
-      ".elements"
+      ".cards"
     );
       CardSection.renderItems();
   }).catch(error => {
@@ -129,8 +129,12 @@ function handleClosePopup(popupElement) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  const newCard = new Card(inputCardTitle.value, inputCardLink.value, document.querySelector(".template-card"), likes,
-  _id, owner, userId, handleOpenImage);
+  const title = inputCardTitle.value;
+  const link = inputCardLink.value;
+  const likes = []; 
+  const _id = userId(); 
+  const owner = user.getUserId();
+  const newCard = new Card(inputCardTitle.value, inputCardLink.value, document.querySelector(".template-card"), likes, _id, owner, userId, handleOpenImage);
   cardArea.prepend(newCard.generateCard());
   handleCloseCardForm();
 }

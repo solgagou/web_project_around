@@ -1,16 +1,20 @@
 export class Card {
-  constructor(item, userId, handleRemoveCard, handleAddLike, handleRemoveLike) {
+  constructor(item, userId, /*handleCardClick*/handleRemoveCard, handleAddLike, handleRemoveLike) {
     this._title = item.title;
     this._link = item.link;
     this._likes = item.likes;
     this._id = item._id;
     this._owner = item.owner;
     this._userId = userId;
+    //this._handleCardClick = handleCardClick;
     //this._card = this._getTemplate();
     this._template = document.querySelector(".template-card").content.cloneNode(true);
-    this.handleRemoveCard = handleRemoveCard;
-    this.handleAddLike = handleAddLike;
-    this.handleRemoveLike = handleRemoveLike;
+    this._handleRemoveCard = handleRemoveCard;
+    this._handleAddLike = handleAddLike;
+    this._handleRemoveLike = handleRemoveLike;
+
+   // this._handleLikeButton = this._handleLikeButton.bind(this);
+    this._setEventListeners = this._setEventListeners.bind(this);
   }
 
   
@@ -34,12 +38,12 @@ export class Card {
     this._likeButton.addEventListener('click', () => {
       this._handleLikeButton();
     });
-    const hasUserLiked = this._likes.some((like) => like._id !== this._userId);
+    const hasUserLiked = this._likes.some((like) => like._id === this._userId);
     if (hasUserLiked) {
-      this.handleRemoveLike(this._id);
+      this._handleRemoveLike(this._id);
       this._likeButton.classList.add('card__like-button_active');
     } else {
-      this.handleAddLike(this._id);
+      this._handleAddLike(this._id);
     }
   }
 
@@ -51,7 +55,7 @@ export class Card {
   }
 
   generateCard() {
-    this._element = this._getTemplate();
+    this._element = this._getTemplate('.template-card');
     this._cardElement = this._element.querySelector('.card');
     this._imageElement = this._element.querySelector('.card__image');
     this._titleElement = this._element.querySelector('.card__title');

@@ -3,6 +3,8 @@ constructor({ items, renderer }, containerSelector) {
     this._items = items;
     this._renderer = renderer;
     this._container = document.querySelector(containerSelector);
+    this.addItem = this.addItem.bind(this);
+    this.renderItems = this.renderItems.bind(this);
 }
 
 renderItems() {
@@ -11,7 +13,7 @@ renderItems() {
     });
   }
 
-addItem(element) {
+addItem(element) { 
     this._container.prepend(element);
   }
 }
