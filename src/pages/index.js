@@ -129,17 +129,15 @@ function handleClosePopup(popupElement) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  const title = inputCardTitle.value;
-  const link = inputCardLink.value;
-  const likes = []; 
-  const _id = userId(); 
+  const likes = [];
+  const _id = "";
   const owner = user.getUserId();
+  const userId = "";
+  //const handleOpenImage = handleOpenImage;
   const newCard = new Card(inputCardTitle.value, inputCardLink.value, document.querySelector(".template-card"), likes, _id, owner, userId, handleOpenImage);
   cardArea.prepend(newCard.generateCard());
   handleCloseCardForm();
 }
-
-
 
 function handleOpenProfileForm() {
   popup.style.display = "flex";
@@ -177,6 +175,20 @@ function handleCloseCardForm() {
   miPopupImage.classList.remove("popup_opened");
 }
 
+/*function handleOpenImage(imageSrc, imageCaption) {
+  const popupImage = document.querySelector('.popup__image');
+  const popupTitle = document.querySelector('.popup__title');
+  const miPopupImage = document.querySelector('#popup-show-image');
+  
+  popupImage.src = imageSrc;
+  popupImage.alt = imageCaption;
+  popupTitle.textContent = imageCaption;
+  
+  miPopupImage.classList.add('popup_opened');
+}*/
+
+
+//function handleCloseImage
 
 openFormButton.addEventListener("click", handleOpenProfileForm);
 closeButton.addEventListener("click", handleCloseProfileForm);
