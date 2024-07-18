@@ -1,12 +1,6 @@
 import "./index.css";
 import { FormValidator } from "../components/FormValidator.js";
 import { Card } from "../components/Cards.js";
-/*import yosemiteImage from "../images/yosemite.jpg";
-import lakeLouiseImage from "../images/lake-louise.jpg";
-import baldMountainsImage from "../images/bald-mountains.jpg";
-import latemarImage from "../images/latemar.jpg";
-import vanoiseImage from "../images/vanoise.jpg";
-import lagoImage from "../images/lago.jpg";*/
 import { Section } from "../components/Section.js";
 import Api from "../components/Api.js";
 import UserInfo from "../components/UserInfo.js";
@@ -71,7 +65,7 @@ api.getUserInfo().then((result) => {
             },
             () => {
               api.removeLike(item._id);
-            })
+            }, () => {}, handleOpenImage)
               .generateCard();
             CardSection.addItem(newCard);
         },
@@ -134,10 +128,17 @@ function handleAddCardSubmit(evt) {
   const owner = user.getUserId();
   const userId = "";
   //const handleOpenImage = handleOpenImage;
-  const newCard = new Card(inputCardTitle.value, inputCardLink.value, document.querySelector(".template-card"), likes, _id, owner, userId, handleOpenImage);
+  const item = {likes, _id, owner, userId, title: inputCardTitle.value, link: inputCardLink.value}
+  const newCard = new Card(item, user.getUserId(), () => {
+    api.addLike(item._id);
+  },
+  () => {
+    api.removeLike(item._id);
+  }, () => {}, handleOpenImage)
   cardArea.prepend(newCard.generateCard());
   handleCloseCardForm();
 }
+
 
 function handleOpenProfileForm() {
   popup.style.display = "flex";
@@ -175,7 +176,7 @@ function handleCloseCardForm() {
   miPopupImage.classList.remove("popup_opened");
 }
 
-/*function handleOpenImage(imageSrc, imageCaption) {
+function handleOpenImage(imageSrc, imageCaption) {
   const popupImage = document.querySelector('.popup__image');
   const popupTitle = document.querySelector('.popup__title');
   const miPopupImage = document.querySelector('#popup-show-image');
@@ -185,10 +186,17 @@ function handleCloseCardForm() {
   popupTitle.textContent = imageCaption;
   
   miPopupImage.classList.add('popup_opened');
-}*/
+}
 
 
-//function handleCloseImage
+function handleCloseImage() {
+return function (event) {
+    if (event.key === "Escape") {
+      popupElement.classList.remove('popup_opened');
+    }
+  };
+}
+
 
 openFormButton.addEventListener("click", handleOpenProfileForm);
 closeButton.addEventListener("click", handleCloseProfileForm);

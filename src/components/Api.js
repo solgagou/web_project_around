@@ -98,11 +98,7 @@ export default class Api {
         authorization: "58122d55-c87e-4425-b657-5b9974dd4029", 
         'Content-Type': 'application/json'
       },  
-      body: JSON.stringify({
-        name: data.title,
-        link: data.link,
-      }),
-    })
+      })
       .then(res => {
         if (res.ok) {
           return res.json();
