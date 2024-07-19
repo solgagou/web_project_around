@@ -15,11 +15,14 @@
 }
 
 .profile__avatar {
-/*top: 0;
-left: 0;*/
+
 }
 
 .profile__avatar-edit-icon {
+  width: 26px;
+  height: 26px;
+  top: 0;
+  left: 0;
 
 }
 

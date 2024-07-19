@@ -1,5 +1,3 @@
-console.log("handleRemoveCard")
-
 export class Card {
   constructor(item, userId, handleAddLike, handleRemoveLike, handleRemoveCard, handleCardClick) {
     this._title = item.title;
@@ -78,7 +76,6 @@ export class Card {
        if (this._owner._id !== this._userId) {
         this._deleteButton.remove();
       }
-      console.log(this._owner._id, this._userId)
     this._likesCounter = this._element.querySelector('.card__like-number');
     this._likesCounter.textContent = this._likes.length;
     this._setProperties();

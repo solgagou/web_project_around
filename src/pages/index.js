@@ -36,6 +36,12 @@ const user = new UserInfo({
   userId: "",
   });
 
+const result = {
+  name: "Sol",
+  job: "developer",
+  avatar: "https://ideogram.ai/assets/image/lossless/response/ReyVUFN5TE6hiU-47jJBmA",
+  _id: "58122d55-c87e-4425-b657-5b9974dd4029",
+};
 
 const api = new Api ({
   baseUrl: "https://around.nomoreparties.co/v1/web_es_11",
@@ -49,33 +55,41 @@ api.getUserInfo().then((result) => {
   inputProfileName.value = result.name;
   inputProfileJob.value = result.job;
   profileAvatar.src = result.avatar;
-  user.setUserInfo(result);
+
+  const data = {
+    name: result.name,
+    job: result.job,
+    userId: result._id
+  }
+
+  user.setUserInfo(data);
+
   }).catch(error => {
     console.error('Error:', error);
   }); 
 
-  
-  api.getInitialCards().then((result) => {
-    const CardSection = new Section(
-      {
-        items: result, 
-        renderer: (item) => {
-            const newCard = new Card(item, user.getUserId(), () => {
-              api.addLike(item._id);
-            },
-            () => {
-              api.removeLike(item._id);
-            }, () => {}, handleOpenImage)
-              .generateCard();
-            CardSection.addItem(newCard);
-        },
+
+api.getInitialCards().then((result) => {
+  const CardSection = new Section(
+    {
+      items: result, 
+      renderer: (item) => {
+          const newCard = new Card(item, user.getUserId(), () => {
+            api.addLike(item._id);
+          },
+          () => {
+            api.removeLike(item._id);
+          }, () => {}, handleOpenImage)
+            .generateCard();
+          CardSection.addItem(newCard);
       },
-      ".cards"
-    );
-      CardSection.renderItems();
-  }).catch(error => {
-    console.error('Error:', error);
-  }); 
+    },
+    ".cards"
+  );
+    CardSection.renderItems();
+}).catch(error => {
+  console.error('Error:', error);
+}); 
 
 const popUpProfile = new PopupWithForm("#popup-profile", (inputs) => {
    api.editProfile(inputs).then((result) => {
@@ -85,12 +99,24 @@ const popUpProfile = new PopupWithForm("#popup-profile", (inputs) => {
    });
 });
 
-const popUpCards = new PopupWithImage("#popup-add-card", (inputs) => {
-  templateCard = result.templateCard;
+api.addCard({
+  title: "Barcelona", 
+  link: "https://plus.unsplash.com/premium_photo-1689370875678-804d07de959f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"})
+
+api.addCard({
+    title: "Puerto Madryn", 
+    link: "https://media.istockphoto.com/id/1179852547/es/foto/ballena-derecha.jpg?s=612x612&w=0&k=20&c=DYL4Kt1nKZ7uPQM8qFvJbA_dDNchQi7wGl9gNPIqIy0="})
+  
+api.addCard({
+    title: "La Pampa", 
+    link: "https://media.istockphoto.com/id/1356238217/es/foto/atardecer-en-el-paisaje-pampeano.webp?b=1&s=170667a&w=0&k=20&c=3s_-4Zefy60GnrJ8YtB6igocwdqDcCqzM_Fe7lCeQpw="})
+
+const popUpCards = new PopupWithForm("#popup-add-card", (inputs) => {
   api.addCard(inputs).then((result) => {
     const newCard = new Card(result, () => {}).generateCard();
     cardSection.addItem(newCard);
-  });
+    handleCloseCardForm();
+  })
 });
 
 const settings = {

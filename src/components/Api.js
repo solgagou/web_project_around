@@ -38,7 +38,7 @@ export default class Api {
   }
 
   editProfile(data) {
-    return fetch(`https://around.nomoreparties.co/v1/web_es_11/users/me/avatar`, {
+    return fetch(`https://around.nomoreparties.co/v1/web_es_11/users/me`, {
       method: 'PATCH',
       headers: {
         authorization: "58122d55-c87e-4425-b657-5b9974dd4029", 
