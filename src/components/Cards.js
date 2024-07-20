@@ -6,7 +6,6 @@ export class Card {
     this._id = item._id;
     this._owner = item.owner;
     this._userId = userId;
-    //this._card = this._getTemplate();
     this._template = document.querySelector(".template-card").content.cloneNode(true);
     this._handleRemoveCard = handleRemoveCard;
     this._handleAddLike = handleAddLike;
@@ -18,10 +17,7 @@ export class Card {
   }
   
   _getTemplate() {
-    return this._template.querySelector(".card").cloneNode(true);
-    //return template.cloneNode(true).content.querySelector(".template-card");
-    //return this._template.content.cloneNode(true);
-    
+    return this._template.querySelector(".card").cloneNode(true); 
   }
 
   _handleRemoveCard() {
@@ -55,7 +51,6 @@ export class Card {
     this._deleteButton.addEventListener('click', () => {
       this._handleRemoveCard();
     });
-
     this._likeButton.addEventListener('click', this._handleLikeButton); // Vincular evento de like
   }
 

@@ -27,6 +27,7 @@ const inputProfileName = document.querySelector("#input-name");
 const inputProfileJob = document.querySelector("#input-job");
 const miPopupImage = document.querySelector("#popup-add-card");
 const profileAvatar = document.querySelector(".profile__avatar");
+const profileEditAvatar = document.querySelector(".profile__avatar-edit-icon");
 //const profileAvatarUrl = document.querySelector()
 
 const user = new UserInfo({
@@ -99,18 +100,6 @@ const popUpProfile = new PopupWithForm("#popup-profile", (inputs) => {
    });
 });
 
-api.addCard({
-  title: "Barcelona", 
-  link: "https://plus.unsplash.com/premium_photo-1689370875678-804d07de959f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"})
-
-api.addCard({
-    title: "Puerto Madryn", 
-    link: "https://media.istockphoto.com/id/1179852547/es/foto/ballena-derecha.jpg?s=612x612&w=0&k=20&c=DYL4Kt1nKZ7uPQM8qFvJbA_dDNchQi7wGl9gNPIqIy0="})
-  
-api.addCard({
-    title: "La Pampa", 
-    link: "https://media.istockphoto.com/id/1356238217/es/foto/atardecer-en-el-paisaje-pampeano.webp?b=1&s=170667a&w=0&k=20&c=3s_-4Zefy60GnrJ8YtB6igocwdqDcCqzM_Fe7lCeQpw="})
-
 const popUpCards = new PopupWithForm("#popup-add-card", (inputs) => {
   api.addCard(inputs).then((result) => {
     const newCard = new Card(result, () => {}).generateCard();
@@ -153,7 +142,6 @@ function handleAddCardSubmit(evt) {
   const _id = "";
   const owner = user.getUserId();
   const userId = "";
-  //const handleOpenImage = handleOpenImage;
   const item = {likes, _id, owner, userId, title: inputCardTitle.value, link: inputCardLink.value}
   const newCard = new Card(item, user.getUserId(), () => {
     api.addLike(item._id);
@@ -165,14 +153,12 @@ function handleAddCardSubmit(evt) {
   handleCloseCardForm();
 }
 
-
 function handleOpenProfileForm() {
   popup.style.display = "flex";
 }
 
 function handleCloseProfileForm() {
   popup.style.display = "none";
-
 }
 
 function handleCloseProfileFormEvent(event) {
@@ -192,7 +178,6 @@ function handleOpenProfileSubmit(evt) {
 
   handleCloseProfileForm();
 }
-
 
 function handleOpenCardForm() {
   miPopupImage.classList.add("popup_opened");
@@ -214,7 +199,6 @@ function handleOpenImage(imageSrc, imageCaption) {
   miPopupImage.classList.add('popup_opened');
 }
 
-
 function handleCloseImage() {
 return function (event) {
     if (event.key === "Escape") {
@@ -222,7 +206,6 @@ return function (event) {
     }
   };
 }
-
 
 openFormButton.addEventListener("click", handleOpenProfileForm);
 closeButton.addEventListener("click", handleCloseProfileForm);
