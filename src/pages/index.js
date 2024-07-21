@@ -27,9 +27,11 @@ const inputCardLink = document.querySelector("#input-url");
 const inputProfileName = document.querySelector("#input-name");
 const inputProfileJob = document.querySelector("#input-job");
 const miPopupImage = document.querySelector("#popup-add-card");
+const openProfileAvatarButton = document.querySelector(".profile__avatar-edit-icon");
+const closeProfileAvatarButton = document.querySelector("#close-profile-avatar-form");
 const profileAvatar = document.querySelector(".profile__avatar");
-const inputprofileAvatar = document.querySelector(".input-profile-avatar");
-const formElementProfileAvatar = document.querySelector(".profile-avatar-form");
+const inputprofileAvatar = document.querySelector("#input-profile-avatar");
+const formElementProfileAvatar = document.querySelector("#profile-avatar-popup");
 
 const user = new UserInfo({
   userName: ".profile__name",
@@ -103,7 +105,7 @@ const popUpProfile = new PopupWithForm("#popup-profile", (inputs) => {
    });
 });
 
-const popUpProfileAvatar = new PopupWithForm("#profile-avatar-form", (inputs) => {
+const popUpProfileAvatar = new PopupWithForm("#profile-avatar-popup", (inputs) => {
   api.editProfilePhoto(inputs).then((result) => {
     user.setUserAvatar(result.avatar);
     handleCloseProfileAvatarForm();
@@ -225,7 +227,7 @@ function handleOpenImage(imageSrc, imageCaption) {
   miPopupImage.classList.add('popup_opened');
 }
 
-function handleCloseImage() {
+function handleCloseImage(event, popupElement) {
 return function (event) {
     if (event.key === "Escape") {
       popupElement.classList.remove('popup_opened');
@@ -256,6 +258,7 @@ document.addEventListener("keydown", handleCloseProfileFormEvent);
 document.addEventListener("keydown", handleClosePopup(PopUpShowImage));
 document.addEventListener("keydown", handleClosePopup(popup));
 document.addEventListener("keydown", handleClosePopup(popUpCard)); 
+document.addEventListener("keydown", (event) => handleCloseImage(event, PopUpShowImage));
 
 
 
