@@ -55,7 +55,7 @@
             class="form form_close-button"
             id="close-profile-form"
           />
-          <h2 class="form form__title">Edit profile</h2>
+          <h2 class="form form__title">Editar perfil</h2>
           <input
             class="form form__input"
             type="text"
@@ -78,16 +78,43 @@
             maxlength="200"
             value="Explorer">
             <span class="form__input-error input-job-error"></span>
-            
-           
           <button
             class="form form__submit-button form__submit-button_disabled"
             type="submit"
             id="submit-profile-button" disabled>
-            Save
+            Guardar
           </button>
         </form>
       </div>
+
+      <div class="popup popup_opened" id="profile-avatar-form">
+        <form class="form popup__form" id="profile-form">
+          <img
+            src="<%=require('./images/Close_Icon.png')%>"
+            class="form form_close-button"
+            id="close-profile-avatar-form"
+          />
+          <h2 class="form form__title">Cambiar foto de perfil</h2>
+          <input
+          class="form form__input"
+          type="url"
+          id="input-profile-avatar"
+          required
+          placeholder="http://somewebsite.com/someimage.jpg"
+          minlength="2"
+          />
+          <span class="form__input-error input-profile-avatar-error"></span>
+          <button
+            class="form form__submit-button form__submit-button_disabled"
+            type="submit"
+            id="submit-profile-avatar-button" disabled>
+            Guardar
+          </button>
+        </form>
+      </div>
+          
+            
+      
 
       <div class="popup popup_show" id="popup-add-card" required>
         <form class="form popup__form" id="addcard-form" required>

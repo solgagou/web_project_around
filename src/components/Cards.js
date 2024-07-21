@@ -20,7 +20,7 @@ export class Card {
     return this._template.querySelector(".card").cloneNode(true); 
   }
 
-  _handleRemoveCard() {
+  _handleDeleteCard() {
     if (this._owner._id === this._userId) {
       this._handleRemoveCard(this._id) 
         .then(() => { 
@@ -49,9 +49,9 @@ export class Card {
     });
 
     this._deleteButton.addEventListener('click', () => {
-      this._handleRemoveCard();
+      this._handleDeleteCard();
     });
-    this._likeButton.addEventListener('click', this._handleLikeButton); // Vincular evento de like
+    this._likeButton.addEventListener('click', this._handleLikeButton); 
   }
 
 

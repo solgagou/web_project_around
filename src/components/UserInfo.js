@@ -29,6 +29,11 @@ export default class UserInfo {
     }
   }
 
+  setUserAvatar(avatar) {
+    if (avatar) {
+      this._avatarElement.src = avatar;
+    }
+  }
 
   getUserId() {
     return this._userId;
@@ -36,4 +41,3 @@ export default class UserInfo {
 }
 
 
-// falta Avatar

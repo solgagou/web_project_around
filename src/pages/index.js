@@ -7,6 +7,7 @@ import UserInfo from "../components/UserInfo.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 
+
 const openFormButton = document.querySelector(".profile__edit-button");
 const popup = document.querySelector(".popup");
 const formElementProfile = document.querySelector("#profile-form");
@@ -27,8 +28,8 @@ const inputProfileName = document.querySelector("#input-name");
 const inputProfileJob = document.querySelector("#input-job");
 const miPopupImage = document.querySelector("#popup-add-card");
 const profileAvatar = document.querySelector(".profile__avatar");
-const profileEditAvatar = document.querySelector(".profile__avatar-edit-icon");
-//const profileAvatarUrl = document.querySelector()
+const inputprofileAvatar = document.querySelector(".input-profile-avatar");
+const formElementProfileAvatar = document.querySelector(".profile-avatar-form");
 
 const user = new UserInfo({
   userName: ".profile__name",
@@ -80,7 +81,9 @@ api.getInitialCards().then((result) => {
           },
           () => {
             api.removeLike(item._id);
-          }, () => {}, handleOpenImage)
+          }, () => {
+            api.deleteCard(item._id);
+          }, handleOpenImage)
             .generateCard();
           CardSection.addItem(newCard);
       },
@@ -98,6 +101,15 @@ const popUpProfile = new PopupWithForm("#popup-profile", (inputs) => {
     inputProfileJob.value = result.job;
     profileAvatar.src = result.avatar;
    });
+});
+
+const popUpProfileAvatar = new PopupWithForm("#profile-avatar-form", (inputs) => {
+  api.editProfilePhoto(inputs).then((result) => {
+    user.setUserAvatar(result.avatar);
+    handleCloseProfileAvatarForm();
+  }).catch(error => {
+    console.error('Error:', error);
+  });
 });
 
 const popUpCards = new PopupWithForm("#popup-add-card", (inputs) => {
@@ -119,6 +131,9 @@ const settings = {
 
 const validateFormProfile = new FormValidator(formElementProfile, settings);
 validateFormProfile.enableValidation();
+
+const validateFormProfileAvatar = new FormValidator(formElementProfileAvatar, settings);
+validateFormProfileAvatar.enableValidation();
 
 const validateFormCard = new FormValidator(formElementCard, settings);
 validateFormCard.enableValidation();
@@ -148,7 +163,10 @@ function handleAddCardSubmit(evt) {
   },
   () => {
     api.removeLike(item._id);
-  }, () => {}, handleOpenImage)
+  }, () => {
+    api.deleteCard(item._id);
+  }, 
+  handleOpenImage)
   cardArea.prepend(newCard.generateCard());
   handleCloseCardForm();
 }
@@ -177,6 +195,14 @@ function handleOpenProfileSubmit(evt) {
   profileJobElement.textContent = inputProfileJob.value;
 
   handleCloseProfileForm();
+}
+
+function handleOpenProfileAvatarForm() {
+  popUpProfileAvatar.open();
+}
+
+function handleCloseProfileAvatarForm() {
+  popUpProfileAvatar.close();
 }
 
 function handleOpenCardForm() {
@@ -209,6 +235,9 @@ return function (event) {
 
 openFormButton.addEventListener("click", handleOpenProfileForm);
 closeButton.addEventListener("click", handleCloseProfileForm);
+
+openProfileAvatarButton.addEventListener("click", handleOpenProfileAvatarForm);
+closeProfileAvatarButton.addEventListener("click", handleCloseProfileAvatarForm);
 
 btnAddCard.addEventListener("click", handleOpenCardForm);
 btnCloseCardForm.addEventListener("click", handleCloseCardForm);
