@@ -57,12 +57,12 @@ const api = new Api ({
 
 api.getUserInfo().then((result) => {
   inputProfileName.value = result.name;
-  inputProfileJob.value = result.job;
+  inputProfileJob.value = result.about;
   profileAvatar.src = result.avatar;
 
   const data = {
     name: result.name,
-    job: result.job,
+    job: result.about,
     userId: result._id
   }
 
@@ -78,7 +78,7 @@ api.getInitialCards().then((result) => {
     {
       items: result, 
       renderer: (item) => {
-          const newCard = new Card(item, user.getUserId(), () => {
+          const newCard = new Card({ ...item, title: item.name }, user.getUserId(), () => {
             api.addLike(item._id);
           },
           () => {
@@ -196,7 +196,9 @@ function handleOpenProfileSubmit(evt) {
   profileNameElement.textContent = inputProfileName.value;
   profileJobElement.textContent = inputProfileJob.value;
 
+  api.editProfile({ name: inputProfileName.value, job: inputProfileJob.value }).finally(() => {
   handleCloseProfileForm();
+})
 }
 
 function handleOpenProfileAvatarForm() {

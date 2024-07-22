@@ -46,7 +46,7 @@ export default class Api {
       },
       body: JSON.stringify({
         name: data.name,
-        job: data.job,
+        about: data.job,
       }),
     }).then((res) => {
       if (res.ok) {
