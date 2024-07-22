@@ -36,9 +36,12 @@ export class Card {
       this._likeButton.classList.remove('card__like-button_active');
       this._likes = this._likes.filter((like) => like._id !== this._userId);
     } else {
-      this._handleAddLike(this._id);
-      this._likeButton.classList.add('card__like-button_active');
+      this._handleAddLike(this._id).then((response)=> {
+        this._likeButton.classList.add('card__like-button_active');
       this._likes.push({ _id: this._userId });
+      this._likesCounter.textContent = response.likes.length;
+      })
+      
     }
   }
 

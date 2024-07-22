@@ -57,6 +57,7 @@ export default class Api {
   }
 
   editAvatar(data) {
+    console.log(data)
     return fetch(`https://around.nomoreparties.co/v1/web_es_11/users/me/avatar`, { 
       method: 'PATCH',
       headers: {

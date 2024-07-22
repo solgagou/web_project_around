@@ -179,9 +179,8 @@ function handleAddCardSubmit(evt) {
   const owner = user.getUserId();
   const userId = "";
   const item = {likes, _id, owner, userId, title: inputCardTitle.value, link: inputCardLink.value}
-  const newCard = new Card(item, user.getUserId(), () => {
-    api.addLike(item._id);
-  },
+  const newCard = new Card(item, user.getUserId(), /*() => {*/
+    api.addLike,
   () => {
     api.removeLike(item._id);
   }, () => {
