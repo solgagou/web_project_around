@@ -106,20 +106,38 @@ const popUpProfile = new PopupWithForm("#popup-profile", (inputs) => {
 });
 
 const popUpProfileAvatar = new PopupWithForm("#profile-avatar-popup", (inputs) => {
-  api.editProfilePhoto(inputs).then((result) => {
+  const submitButton = document.querySelector("#submit-profile-avatar-button");
+  submitButton.textContent = "Guardando...";
+  submitButton.disabled = true;
+  
+  api.editAvatar(inputs).then((result) => {
     user.setUserAvatar(result.avatar);
     handleCloseProfileAvatarForm();
-  }).catch(error => {
-    console.error('Error:', error);
-  });
+  })
+    .catch(error => console.error('Error:', error))
+    .finally(() => {
+      submitButton.textContent = "Guardar";
+      submitButton.disabled = false;
+    });
 });
 
+popUpProfileAvatar.setEventListeners()
+
 const popUpCards = new PopupWithForm("#popup-add-card", (inputs) => {
+  const submitButton = document.querySelector("#addcard-form-button");
+  submitButton.textContent = "Guardando...";
+  submitButton.disabled = true;
+  
   api.addCard(inputs).then((result) => {
     const newCard = new Card(result, () => {}).generateCard();
     cardSection.addItem(newCard);
     handleCloseCardForm();
   })
+  .catch(error => console.error('Error:', error))
+    .finally(() => {
+      submitButton.textContent = "Crear";
+      submitButton.disabled = false;
+    });
 });
 
 const settings = {
@@ -130,6 +148,7 @@ const settings = {
   inputErrorClass: "form__input-error",
   errorClass: "popup__error_visible"
 };
+
 
 const validateFormProfile = new FormValidator(formElementProfile, settings);
 validateFormProfile.enableValidation();
@@ -189,6 +208,8 @@ function handleCloseProfileFormEvent(event) {
 
 function handleOpenProfileSubmit(evt) {
   evt.preventDefault();
+  formProfileButton.textContent = "Guardando...";
+  formProfileButton.disabled = true;
 
   const profileNameElement = document.querySelector(".profile__name");
   const profileJobElement = document.querySelector(".profile__job");
@@ -196,9 +217,19 @@ function handleOpenProfileSubmit(evt) {
   profileNameElement.textContent = inputProfileName.value;
   profileJobElement.textContent = inputProfileJob.value;
 
-  api.editProfile({ name: inputProfileName.value, job: inputProfileJob.value }).finally(() => {
-  handleCloseProfileForm();
-})
+  api.editProfile({ name: inputProfileName.value, job: inputProfileJob.value }).then((result) => {
+    user.setUserInfo({
+      name: result.name,
+      job: result.job,
+      userId: result._id,
+    });
+  })
+  .catch(error => console.error('Error:', error))
+  .finally(() => {
+    formProfileButton.textContent = "Guardar";
+    formProfileButton.disabled = false;
+    handleCloseProfileForm();
+  });
 }
 
 function handleOpenProfileAvatarForm() {

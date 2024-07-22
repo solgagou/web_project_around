@@ -56,6 +56,24 @@ export default class Api {
     });
   }
 
+  editAvatar(data) {
+    return fetch(`https://around.nomoreparties.co/v1/web_es_11/users/me/avatar`, { 
+      method: 'PATCH',
+      headers: {
+        authorization: "58122d55-c87e-4425-b657-5b9974dd4029",
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        avatar: data.avatar, 
+      }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+  
   addCard(data) {
     return fetch(`https://around.nomoreparties.co/v1/web_es_11/cards`, {
       method: 'POST',
@@ -77,10 +95,11 @@ export default class Api {
   }
 
   addLikes(data) {
-    return fetch(`https://around.nomoreparties.co/v1/web_es_11/cards`, {
-      method: 'GET',
+    return fetch(`https://around.nomoreparties.co/v1/web_es_11/cards/likes/likes/${cardId}`, {
+      method: 'PUT',
       headers: {
-        authorization: "58122d55-c87e-4425-b657-5b9974dd4029"
+        authorization: "58122d55-c87e-4425-b657-5b9974dd4029",
+        'Content-Type': 'application/json'
       }
     })
       .then(res => {
