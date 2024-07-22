@@ -78,13 +78,11 @@ api.getInitialCards().then((result) => {
     {
       items: result, 
       renderer: (item) => {
-          const newCard = new Card({ ...item, title: item.name }, user.getUserId(), () => {
-            api.addLike(item._id);
-          },
-          () => {
-            api.removeLike(item._id);
-          }, () => {
-            api.deleteCard(item._id);
+          const newCard = new Card({ ...item, title: item.name }, user.getUserId(),
+          api.addLike,
+          api.removeLike,
+        () => {
+          api.deleteCard(item._id);
           }, handleOpenImage)
             .generateCard();
           CardSection.addItem(newCard);
@@ -104,6 +102,8 @@ const popUpProfile = new PopupWithForm("#popup-profile", (inputs) => {
     profileAvatar.src = result.avatar;
    });
 });
+
+popUpProfile.setEventListeners()
 
 const popUpProfileAvatar = new PopupWithForm("#profile-avatar-popup", (inputs) => {
   const submitButton = document.querySelector("#submit-profile-avatar-button");
@@ -139,6 +139,8 @@ const popUpCards = new PopupWithForm("#popup-add-card", (inputs) => {
       submitButton.disabled = false;
     });
 });
+
+popUpCards.setEventListeners()
 
 const settings = {
   formSelector: ".popup__form",
@@ -179,11 +181,10 @@ function handleAddCardSubmit(evt) {
   const owner = user.getUserId();
   const userId = "";
   const item = {likes, _id, owner, userId, title: inputCardTitle.value, link: inputCardLink.value}
-  const newCard = new Card(item, user.getUserId(), /*() => {*/
+  const newCard = new Card(item, user.getUserId(), 
     api.addLike,
+    api.removeLike,
   () => {
-    api.removeLike(item._id);
-  }, () => {
     api.deleteCard(item._id);
   }, 
   handleOpenImage)

@@ -32,18 +32,21 @@ export class Card {
   _handleLikeButton() {
     const hasUserLiked = this._likes.some((like) => like._id === this._userId);
     if (hasUserLiked) {
-      this._handleRemoveLike(this._id);
+      this._handleRemoveLike(this._id).then((response) => {
       this._likeButton.classList.remove('card__like-button_active');
       this._likes = this._likes.filter((like) => like._id !== this._userId);
-    } else {
-      this._handleAddLike(this._id).then((response)=> {
-        this._likeButton.classList.add('card__like-button_active');
+      this._likesCounter.textContent = response.likes.length;
+    });
+   } else {
+      this._handleAddLike(this._id).then((response) => {
+      this._likeButton.classList.add('card__like-button_active');
       this._likes.push({ _id: this._userId });
       this._likesCounter.textContent = response.likes.length;
-      })
-      
+    })
+       
     }
   }
+  
 
     
   _setEventListeners() {
