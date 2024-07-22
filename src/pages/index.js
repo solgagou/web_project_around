@@ -31,7 +31,7 @@ const openProfileAvatarButton = document.querySelector(".profile__avatar-edit-ic
 const closeProfileAvatarButton = document.querySelector("#close-profile-avatar-form");
 const profileAvatar = document.querySelector(".profile__avatar");
 const inputprofileAvatar = document.querySelector("#input-profile-avatar");
-const formElementProfileAvatar = document.querySelector("#profile-avatar-popup");
+const formElementProfileAvatar = document.querySelector("#profile-avatar-form");
 
 const user = new UserInfo({
   userName: ".profile__name",
