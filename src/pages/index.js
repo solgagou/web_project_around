@@ -57,45 +57,27 @@ const api = new Api ({
   },
 });
 
-function addMyPhotos() {
-  const myPhotos = [
-    { title: 'Barcelona', link: "https://img.freepik.com/foto-gratis/vista-aerea-drones-barcelona-espana-bloques-multiples-edificios-residenciales-oficinas_1268-19508.jpg?size=626&ext=jpg" },
-  ];
-
-myPhotos.forEach(photo => {
-  const newCard = new Card({
-    name: photo.title,
-    link: photo.link,
-    likes: [],
-    _id: "58122d55-c87e-4425-b657-5b9974dd4029", 
-    owner: { _id: user.getUserId() }
-  }, user.getUserId(), api.addLike, api.removeLike, api.deleteCard, handleOpenImage).generateCard();
-  
-  cardSection.addItem(newCard);
-});
-}
-
 
 api.getUserInfo().then((result) => {
   inputProfileName.value = result.name;
   inputProfileJob.value = result.about;
   profileAvatar.src = result.avatar;
 
-  const data = {
-    name: result.name,
-    job: result.about,
-    userId: result._id
-  }
+const data = {
+  name: result.name,
+  job: result.about,
+  userId: result._id
+}
 
-  user.setUserInfo(data);
+user.setUserInfo(data);
 
-  }).catch(error => {
-    console.error('Error:', error);
-  }); 
+}).catch(error => {
+  console.error('Error:', error);
+}); 
 
 
 api.getInitialCards().then((result) => {
-  const CardSection = new Section(
+  const cardSection = new Section(
     {
       items: result, 
       renderer: (item) => {
@@ -106,19 +88,31 @@ api.getInitialCards().then((result) => {
           api.deleteCard(item._id);
           }, handleOpenImage)
             .generateCard();
-          CardSection.addItem(newCard);
+          cardSection.addItem(newCard);
       },
     },
     ".cards"
   );
-    CardSection.renderItems();
+    cardSection.renderItems();
 
-    addMyPhotos();
-    
-}).catch(error => {
-  console.error('Error:', error);
-}); 
-
+    const myPhotos = [
+      { title: 'Barcelona', link: "https://img.freepik.com/foto-gratis/vista-aerea-drones-barcelona-espana-bloques-multiples-edificios-residenciales-oficinas_1268-19508.jpg?size=626&ext=jpg" },
+    ];
+  
+    myPhotos.forEach(photo => {
+      const newCard = new Card({
+        name: photo.title,
+        link: photo.link,
+        likes: [],
+        _id: "58122d55-c87e-4425-b657-5b9974dd4029",
+        owner: { _id: user.getUserId() }
+      }, user.getUserId(), api.addLike, api.removeLike, api.deleteCard, handleOpenImage).generateCard();
+  
+      cardSection.addItem(newCard);
+    });
+  }).catch(error => {
+    console.error('Error:', error);
+  });
 
 const popUpProfile = new PopupWithForm("#popup-profile", (inputs) => {
    api.editProfile(inputs).then((result) => {
@@ -131,19 +125,16 @@ const popUpProfile = new PopupWithForm("#popup-profile", (inputs) => {
 popUpProfile.setEventListeners()
 
 const popUpProfileAvatar = new PopupWithForm("#profile-avatar-popup", (inputs) => {
-  console.log("Formulario de actualización de avatar enviado");
   const submitButton = document.querySelector("#submit-profile-avatar-button");
   submitButton.textContent = "Guardando...";
   submitButton.disabled = true;
   
   api.editAvatar(inputs).then((result) => {
-    console.log("Foto de perfil actualizada exitosamente");
     user.setUserAvatar(result.avatar);
     handleCloseProfileAvatarForm();
   })
     .catch(error => console.error('Error:', error))
     .finally(() => {
-      console.log("Restaurando texto del botón a 'Guardar'");
       if (submitButton) {
         submitButton.textContent = "Guardar";
         submitButton.disabled = false;
@@ -181,7 +172,6 @@ const settings = {
   errorClass: "popup__error_visible"
 };
 
-
 const validateFormProfile = new FormValidator(formElementProfile, settings);
 validateFormProfile.enableValidation();
 
@@ -195,6 +185,7 @@ const groupId = 'web_es_11';
 const token = '58122d55-c87e-4425-b657-5b9974dd4029';
 
 popup.style.display = "none";
+
 
 function handleClosePopup(popupElement) {
   return function (event) {
