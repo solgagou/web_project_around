@@ -7,6 +7,9 @@ import UserInfo from "../components/UserInfo.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 
+/*import PuertoMadryn from "../images/PtoMadryn_image.jpg";
+import Barcelona from "../images/Barcelona_image.jpg";
+import LaPampa from "../images/LaPampa_image.jpg";*/
 
 const openFormButton = document.querySelector(".profile__edit-button");
 const popup = document.querySelector(".popup");
@@ -54,6 +57,24 @@ const api = new Api ({
   },
 });
 
+function addMyPhotos() {
+  const myPhotos = [
+    { title: 'Barcelona', link: "https://img.freepik.com/foto-gratis/vista-aerea-drones-barcelona-espana-bloques-multiples-edificios-residenciales-oficinas_1268-19508.jpg?size=626&ext=jpg" },
+  ];
+
+myPhotos.forEach(photo => {
+  const newCard = new Card({
+    name: photo.title,
+    link: photo.link,
+    likes: [],
+    _id: "58122d55-c87e-4425-b657-5b9974dd4029", 
+    owner: { _id: user.getUserId() }
+  }, user.getUserId(), api.addLike, api.removeLike, api.deleteCard, handleOpenImage).generateCard();
+  
+  cardSection.addItem(newCard);
+});
+}
+
 
 api.getUserInfo().then((result) => {
   inputProfileName.value = result.name;
@@ -91,9 +112,13 @@ api.getInitialCards().then((result) => {
     ".cards"
   );
     CardSection.renderItems();
+
+    addMyPhotos();
+    
 }).catch(error => {
   console.error('Error:', error);
 }); 
+
 
 const popUpProfile = new PopupWithForm("#popup-profile", (inputs) => {
    api.editProfile(inputs).then((result) => {
@@ -106,18 +131,23 @@ const popUpProfile = new PopupWithForm("#popup-profile", (inputs) => {
 popUpProfile.setEventListeners()
 
 const popUpProfileAvatar = new PopupWithForm("#profile-avatar-popup", (inputs) => {
+  console.log("Formulario de actualización de avatar enviado");
   const submitButton = document.querySelector("#submit-profile-avatar-button");
   submitButton.textContent = "Guardando...";
   submitButton.disabled = true;
   
   api.editAvatar(inputs).then((result) => {
+    console.log("Foto de perfil actualizada exitosamente");
     user.setUserAvatar(result.avatar);
     handleCloseProfileAvatarForm();
   })
     .catch(error => console.error('Error:', error))
     .finally(() => {
-      submitButton.textContent = "Guardar";
-      submitButton.disabled = false;
+      console.log("Restaurando texto del botón a 'Guardar'");
+      if (submitButton) {
+        submitButton.textContent = "Guardar";
+        submitButton.disabled = false;
+      } 
     });
 });
 

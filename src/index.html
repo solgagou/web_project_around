@@ -23,12 +23,14 @@
       </header>
       <main class="profile">
         <div class="profile__header">
-          <img
+          <div class="profile__photo">
+            <img
             src="<%=require('./images/profile_image.jpg')%>"
             alt="a photo of Jack Cousteau with a red hat"
             class="profile__photo profile__avatar"
-          />
-          <img class="profile__avatar-edit-icon" src="<%=require("../src/images/Avatar_edit_icon.png")%>">
+            />
+            <img class="profile__avatar-edit-icon" src="<%=require("../src/images/Avatar_edit_icon.png")%>">
+          </div>
           <div class="profile__data">
             <h1 class="profile__name">Jacques Cousteau</h1>
             <button class="profile__edit-button" type="submit"></button>

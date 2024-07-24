@@ -8,22 +8,22 @@
 }
 
 .profile__photo {
+  display: flex;
+}
+
+.profile__avatar {
+  position: relative;
   border-radius: 50%;
   width: 120px;
   height: 120px;
   margin: auto;
-  position: relative;
-}
-
-.profile__avatar {
-
 }
 
 .profile__avatar-edit-icon {
   position: absolute;
   width: 26px;
   height: 26px;
-  margin: 50px;
+  margin: 47px;
 }
 
 .profile__data {

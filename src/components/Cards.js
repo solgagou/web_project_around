@@ -12,7 +12,7 @@ export class Card {
     this._handleRemoveLike = handleRemoveLike;
     this._handleCardClick = handleCardClick;
 
-   this._handleLikeButton = this._handleLikeButton.bind(this);
+    this._handleLikeButton = this._handleLikeButton.bind(this);
     this._setEventListeners = this._setEventListeners.bind(this);
   }
   
