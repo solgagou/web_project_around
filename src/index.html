@@ -66,7 +66,7 @@
             placeholder="Nombre"
             minlength="2"
             maxlength="40"
-
+            name= "name"
             value="Jacques Cousteau" 
           />
           <span class="form__input-error input-name-error"></span>
@@ -78,6 +78,7 @@
             placeholder="Acerca de"
             minlength="2"
             maxlength="200"
+            about= "job"
             value="Explorer">
             <span class="form__input-error input-job-error"></span>
           <button
@@ -116,9 +117,7 @@
         </form>
       </div>
           
-            
-      
-
+        
       <div class="popup popup_show" id="popup-add-card" required>
         <form class="form popup__form" id="addcard-form" required>
           <img
@@ -163,19 +162,6 @@
         </form>
       </div>
 
-      <div class="popup popup_show" id="popup-show-image">
-        <div class="popup__content">
-          <img
-            class="popup__close-button"
-            src="<%=require('./images/Close_Icon.png')%>"
-            id="close-image-button"
-            alt="an image of a close button"
-          />
-          <img class="popup__image" src=" " alt="title" />
-          <h3 class="popup__title"></h3>
-        </div>
-      </div>
-
       <div class="popup popup_show" id="popup-delete-card">
         <div class="popup__content">
           <img
@@ -184,13 +170,11 @@
             id="close-image-button"
             alt="an image of a close button"
           />
-          <img class="popup__image" src=" " alt="title" />
           <h1 class="popup__title">¿Estás seguro?</h1>
           <button
             class="popup__delete-button"
             type="submit"
             id="deletecard-button"
-
           >
             Sí
           </button>

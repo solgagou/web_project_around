@@ -43,7 +43,6 @@ export class PopupWithForm extends Popup {
       const inputs = Array.from(this._formElement.querySelectorAll('input'));
       const formValues = {};
       inputs.forEach(input => {
-        console.log(input.value, input.link, input.name)
       formValues[input.link] = input.value
       formValues[input.name] = input.value;
       

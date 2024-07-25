@@ -7,10 +7,6 @@ import UserInfo from "../components/UserInfo.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
 
-/*import PuertoMadryn from "../images/PtoMadryn_image.jpg";
-import Barcelona from "../images/Barcelona_image.jpg";
-import LaPampa from "../images/LaPampa_image.jpg";*/
-
 const openFormButton = document.querySelector(".profile__edit-button");
 const popup = document.querySelector(".popup");
 const formElementProfile = document.querySelector("#profile-form");
@@ -95,21 +91,6 @@ api.getInitialCards().then((result) => {
   );
     cardSection.renderItems();
 
-    /*const myPhotos = [
-      { name: 'Barcelona', link: "https://img.freepik.com/foto-gratis/vista-aerea-drones-barcelona-espana-bloques-multiples-edificios-residenciales-oficinas_1268-19508.jpg?size=626&ext=jpg" },
-    ];
-  
-    myPhotos.forEach(photo => {
-      const newCard = new Card({
-        name: photo.title,
-        link: photo.link,
-        likes: [],
-        _id: "58122d55-c87e-4425-b657-5b9974dd4029",
-        owner: { _id: user.getUserId() }
-      }, user.getUserId(), api.addLike, api.removeLike, api.deleteCard, handleOpenImage).generateCard();
-  
-      cardSection.addItem(newCard);
-    });*/
   }).catch(error => {
     console.error('Error:', error);
   });
@@ -146,7 +127,6 @@ popUpProfileAvatar.setEventListeners()
 
 const popUpCards = new PopupWithForm("#popup-add-card", (inputs) => {
   const submitButton = document.querySelector("#addcard-form-button");
-  console.log(submitButton)
   submitButton.textContent = "Guardando...";
   submitButton.disabled = true;
   
@@ -304,7 +284,7 @@ closeImage.addEventListener("click", () => {
 formProfileButton.addEventListener("click", handleOpenProfileSubmit);
 FormCard.addEventListener("submit", handleAddCardSubmit);
 
-PopUpShowImage.addEventListener("click", handleClosePopup(PopUpShowImage));
+//PopUpShowImage.addEventListener("click", handleClosePopup(PopUpShowImage));
 popup.addEventListener("click", handleClosePopup(popup));
 popup.addEventListener("click", handleCloseProfileFormEvent);
 popUpCard.addEventListener("click", handleClosePopup(popUpCard));

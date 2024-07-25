@@ -23,6 +23,7 @@ export class Card {
   _handleRemoveCard() {
     if (this._owner._id === this._userId) {
       this._handleDeleteCard(this._id) 
+      this._handleDeleteCard(this._id) 
         .then(() => { 
           this._element.remove(); 
          })
