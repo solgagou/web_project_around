@@ -75,18 +75,18 @@ user.setUserInfo(data);
   console.error('Error:', error);
 }); 
 
+let cardSection = ""
 
 api.getInitialCards().then((result) => {
-  const cardSection = new Section(
+  cardSection = new Section(
     {
       items: result, 
       renderer: (item) => {
-          const newCard = new Card({ ...item, title: item.name }, user.getUserId(),
+          const newCard = new Card(item, user.getUserId(),
           api.addLike,
           api.removeLike,
-        () => {
-          api.deleteCard(item._id);
-          }, handleOpenImage)
+          api.deleteCard,
+          handleOpenImage)
             .generateCard();
           cardSection.addItem(newCard);
       },
@@ -95,8 +95,8 @@ api.getInitialCards().then((result) => {
   );
     cardSection.renderItems();
 
-    const myPhotos = [
-      { title: 'Barcelona', link: "https://img.freepik.com/foto-gratis/vista-aerea-drones-barcelona-espana-bloques-multiples-edificios-residenciales-oficinas_1268-19508.jpg?size=626&ext=jpg" },
+    /*const myPhotos = [
+      { name: 'Barcelona', link: "https://img.freepik.com/foto-gratis/vista-aerea-drones-barcelona-espana-bloques-multiples-edificios-residenciales-oficinas_1268-19508.jpg?size=626&ext=jpg" },
     ];
   
     myPhotos.forEach(photo => {
@@ -109,7 +109,7 @@ api.getInitialCards().then((result) => {
       }, user.getUserId(), api.addLike, api.removeLike, api.deleteCard, handleOpenImage).generateCard();
   
       cardSection.addItem(newCard);
-    });
+    });*/
   }).catch(error => {
     console.error('Error:', error);
   });
@@ -146,18 +146,20 @@ popUpProfileAvatar.setEventListeners()
 
 const popUpCards = new PopupWithForm("#popup-add-card", (inputs) => {
   const submitButton = document.querySelector("#addcard-form-button");
+  console.log(submitButton)
   submitButton.textContent = "Guardando...";
   submitButton.disabled = true;
   
   api.addCard(inputs).then((result) => {
     const newCard = new Card(result, () => {}).generateCard();
     cardSection.addItem(newCard);
-    handleCloseCardForm();
+    
   })
   .catch(error => console.error('Error:', error))
     .finally(() => {
       submitButton.textContent = "Crear";
       submitButton.disabled = false;
+      handleCloseCardForm();
     });
 });
 
@@ -201,14 +203,12 @@ function handleAddCardSubmit(evt) {
   const _id = "";
   const owner = user.getUserId();
   const userId = "";
-  const item = {likes, _id, owner, userId, title: inputCardTitle.value, link: inputCardLink.value}
+  const item = {likes, _id, owner, userId, name: inputCardTitle.value, link: inputCardLink.value}
   const newCard = new Card(item, user.getUserId(), 
     api.addLike,
     api.removeLike,
-  () => {
-    api.deleteCard(item._id);
-  }, 
-  handleOpenImage)
+    api.deleteCard, 
+    handleOpenImage)
   cardArea.prepend(newCard.generateCard());
   handleCloseCardForm();
 }

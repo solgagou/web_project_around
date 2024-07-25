@@ -82,7 +82,7 @@ export default class Api {
         'Content-Type': 'application/json'
       },  
       body: JSON.stringify({
-        name: data.title,
+        name: data.name,
         link: data.link,
       }),
     })
@@ -111,7 +111,7 @@ export default class Api {
   }
 
   deleteCard(data) {
-    return fetch(`https://around.nomoreparties.co/v1/web_es_11/cards/cardId`, {
+      return fetch(`https://around.nomoreparties.co/v1/web_es_11/cards/${data}`, {
       method: 'DELETE',
       headers: {
         authorization: "58122d55-c87e-4425-b657-5b9974dd4029", 

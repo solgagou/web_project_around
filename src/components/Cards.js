@@ -1,16 +1,16 @@
 export class Card {
-  constructor(item, userId, handleAddLike, handleRemoveLike, handleRemoveCard, handleCardClick) {
-    this._title = item.title;
+  constructor(item, userId, handleAddLike, handleRemoveLike, handleDeleteCard, handleOpenImage) {
+    this._name = item.name;
     this._link = item.link;
     this._likes = item.likes;
     this._id = item._id;
     this._owner = item.owner;
     this._userId = userId;
     this._template = document.querySelector(".template-card").content.cloneNode(true);
-    this._handleRemoveCard = handleRemoveCard;
+    this._handleDeleteCard = handleDeleteCard;
     this._handleAddLike = handleAddLike;
     this._handleRemoveLike = handleRemoveLike;
-    this._handleCardClick = handleCardClick;
+    this._handleOpenImage = handleOpenImage;
 
     this._handleLikeButton = this._handleLikeButton.bind(this);
     this._setEventListeners = this._setEventListeners.bind(this);
@@ -20,9 +20,9 @@ export class Card {
     return this._template.querySelector(".card").cloneNode(true); 
   }
 
-  _handleDeleteCard() {
+  _handleRemoveCard() {
     if (this._owner._id === this._userId) {
-      this._handleRemoveCard(this._id) 
+      this._handleDeleteCard(this._id) 
         .then(() => { 
           this._element.remove(); 
          })
@@ -46,16 +46,14 @@ export class Card {
        
     }
   }
-  
-
-    
+      
   _setEventListeners() {
     this._imageElement.addEventListener('click', () => {
-      this._handleCardClick(this._link, this._name);
+      this._handleOpenImage(this._link, this._name);
     });
 
     this._deleteButton.addEventListener('click', () => {
-      this._handleDeleteCard();
+      this._handleRemoveCard();
     });
     this._likeButton.addEventListener('click', this._handleLikeButton); 
   }
@@ -63,8 +61,8 @@ export class Card {
 
   _setProperties() {
     this._imageElement.src = this._link;
-    this._imageElement.alt = this._title;
-    this._titleElement.textContent = this._title;
+    this._imageElement.alt = this._name;
+    this._titleElement.textContent = this._name;
   }
 
   generateCard() {
