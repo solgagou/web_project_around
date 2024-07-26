@@ -165,7 +165,7 @@
       <div class="popup popup_show" id="popup-delete-card">
         <div class="popup__content">
           <img
-            class="popup__close-button"
+            class="popup__close-button  form_close-button"
             src="<%=require('./images/Close_Icon.png')%>"
             id="close-image-button"
             alt="an image of a close button"
@@ -192,9 +192,10 @@
           />
           <div class="card__info">
             <p class="card__title"></p>
-            <button class="card__like-button" type="submit"></button>
-            <span class= "card__like-number"></span>
-          </div>
+            <div class="card-like-content"></div>
+              <button class="card__like-button" type="submit"></button>
+              <span class= "card__like-number"></span>
+            </div>
         </li>
       </template>
        </div>

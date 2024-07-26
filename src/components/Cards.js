@@ -23,11 +23,7 @@ export class Card {
   _handleRemoveCard() {
     if (this._owner._id === this._userId) {
       this._handleDeleteCard(this._id) 
-      this._handleDeleteCard(this._id) 
-        .then(() => { 
-          this._element.remove(); 
-         })
-     }
+    }
   }
 
   _handleLikeButton() {
@@ -78,6 +74,7 @@ export class Card {
       }
     this._likesCounter = this._element.querySelector('.card__like-number');
     this._likesCounter.textContent = this._likes.length;
+    this._element.id = `id-${this._id}`
     this._setProperties();
     this._setEventListeners();
     

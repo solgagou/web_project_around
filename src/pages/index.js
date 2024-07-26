@@ -6,6 +6,7 @@ import Api from "../components/Api.js";
 import UserInfo from "../components/UserInfo.js";
 import { PopupWithForm } from "../components/PopupWithForm.js";
 import { PopupWithImage } from "../components/PopupWithImage.js";
+import { PopupWithConfirmation } from "../components/PopupWithConfirmation.js";
 
 const openFormButton = document.querySelector(".profile__edit-button");
 const popup = document.querySelector(".popup");
@@ -81,7 +82,9 @@ api.getInitialCards().then((result) => {
           const newCard = new Card(item, user.getUserId(),
           api.addLike,
           api.removeLike,
-          api.deleteCard,
+         () => {
+          popupwithconfirmation.open(item._id)
+           },
           handleOpenImage)
             .generateCard();
           cardSection.addItem(newCard);
@@ -143,6 +146,16 @@ const popUpCards = new PopupWithForm("#popup-add-card", (inputs) => {
     });
 });
 
+const popupwithconfirmation = new PopupWithConfirmation("#popup-delete-card", (cardId) => {
+  api.deleteCard(cardId).then(() => {
+    document.querySelector(`#id-${ cardId }`).remove()
+  }
+  )
+})
+
+popupwithconfirmation.setEventListeners()
+
+
 popUpCards.setEventListeners()
 
 const settings = {
@@ -187,7 +200,9 @@ function handleAddCardSubmit(evt) {
   const newCard = new Card(item, user.getUserId(), 
     api.addLike,
     api.removeLike,
-    api.deleteCard, 
+    () => {
+      popupwithconfirmation.open(item._id)
+       },
     handleOpenImage)
   cardArea.prepend(newCard.generateCard());
   handleCloseCardForm();
