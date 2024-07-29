@@ -26,8 +26,7 @@ export class PopupWithConfirmation extends Popup {
 
     close() {
       super.close()
-    
     }
-    }
+  }
 
 
